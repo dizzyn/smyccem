@@ -9,7 +9,7 @@ export default function ChordSwitch({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setChords(localStorage && localStorage.getItem(lsKey) == "1");
-  }, [localStorage]);
+  }, []);
 
   const toggle = useCallback(() => {
     try {
