@@ -148,3 +148,11 @@ table {
 .title {
   text-wrap: balance;
 }
+
+.chords {
+  display: none;
+}
+
+.showChords .chords {
+    display: inline;
+}
