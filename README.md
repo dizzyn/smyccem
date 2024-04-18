@@ -2,7 +2,7 @@
 
 # Todo:
 - [x] Zobrazování akordů on/off
-- [ ] Všechny texty 
+- [x] Všechny texty 
 - [ ] Migrovat linky ze starého webu
-- [ ] Youtube videa
+- [x] Youtube videa
 - [ ] Rotace koncertů

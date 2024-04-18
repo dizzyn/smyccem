@@ -22,7 +22,12 @@ export default function ChordSwitch({ children }: { children: ReactNode }) {
   return (
     <>
       {chords !== undefined && (
-        <div onClick={toggle}>{chords ? "ON" : "OFF"}</div>
+        <div
+          className="absolute right-10 top-10 cursor-pointer"
+          onClick={toggle}
+        >
+          {chords ? "Skrýt akordy" : "Zobrazit akordy"}
+        </div>
       )}
       <div className={chords ? "showChords" : ""}>{children}</div>
     </>

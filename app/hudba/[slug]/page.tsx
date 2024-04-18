@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { getSongs } from "app/hudba/utils";
-import ChordSwitch from "./song";
+import ChordSwitch from "./chords";
 import { baseUrl } from "app/basepath";
+import { YouTubeEmbed } from "@next/third-parties/google";
 
 export async function generateStaticParams() {
   let posts = getSongs();
@@ -18,14 +19,15 @@ export function generateMetadata({}) {
     return;
   }
 
-  let { title, youtubeId, thumbnail } = songs.metadata;
+  let { title, youtube, info, thumbnail } = songs.metadata;
   let ogImage = thumbnail
     ? thumbnail
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
-    youtubeId,
+    youtube,
+    info,
     openGraph: {
       title,
       type: "article",
@@ -46,7 +48,8 @@ export function generateMetadata({}) {
 
 export interface Metadata {
   title: string;
-  youtubeId?: string;
+  info?: string;
+  youtube?: string;
   thumbnail?: string;
 }
 
@@ -65,7 +68,6 @@ export default function Song({ params }: { params: { slug: string } }) {
 
   return (
     <section>
-      {/* {chords ? "on" : "off"} */}
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -91,12 +93,19 @@ export default function Song({ params }: { params: { slug: string } }) {
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {song.metadata.title}
       </h1>
+
+      {song.metadata.info}
+      {song.metadata.youtube && (
+        <div className="noprint">
+          <YouTubeEmbed videoid={song.metadata.youtube} height={400} />
+        </div>
+      )}
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
           {/* {formatDate(post.metadata.publishedAt)} */}
         </p>
       </div>
-      <article className="prose">
+      <article className="songLyrics">
         <ChordSwitch>
           <CustomMDX source={song.content} />
         </ChordSwitch>

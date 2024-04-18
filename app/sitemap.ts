@@ -4,7 +4,8 @@ import { baseUrl } from "./basepath";
 export default async function sitemap() {
   let blogs = getSongs().map((post) => ({
     url: `${baseUrl}/hudba/${post.slug}`,
-    youtubeId: post.metadata.youtubeId,
+    youtube: post.metadata.youtube,
+    info: post.metadata.info,
   }));
 
   let routes = ["", "/hudba"].map((route) => ({
