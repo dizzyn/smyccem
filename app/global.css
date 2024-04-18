@@ -17,36 +17,31 @@
   --sh-entity: #e25a1c;
 }
 
-
-html {
-  min-width: 360px;
-}
-
 .chords {
   display: none;
 }
 
 .showChords .chords {
-    display: inline;
+  display: inline;
 }
 
 .songLyrics {
   a {
-    @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+    @apply underline transition-all decoration-neutral-400 underline-offset-2 decoration-[0.1em];
   }
 
   p {
-    @apply p-0 pb-2;
+    @apply p-0 py-4 text-2xl text-white font-medium leading-9;
   }
 
   .prose strong {
     @apply font-medium;
   }
-  
+
   ul {
     @apply list-disc pl-6 list-inside;
   }
-  
+
   ol {
     @apply list-decimal list-inside;
     p {
@@ -57,24 +52,25 @@ html {
   li {
     @apply pb-2;
     &::marker {
-      @apply text-gray-300 font-medium italic
+      @apply text-gray-300 font-medium italic;
     }
   }
 
-  em, blockquote {
-    @apply text-gray-300 font-medium italic
+  em,
+  blockquote {
+    @apply text-gray-300 font-medium italic;
   }
 }
 
 .noprint {
   @media print {
-      display: none;
+    display: none;
   }
 }
 
 .printonly {
   display: none;
   @media print {
-      display: inline;
+    display: inline;
   }
 }

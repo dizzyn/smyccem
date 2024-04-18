@@ -1,9 +1,9 @@
-import { notFound } from "next/navigation";
-import { CustomMDX } from "app/components/mdx";
-import { getSongs } from "app/hudba/utils";
-import ChordSwitch from "./chords";
-import { baseUrl } from "app/basepath";
-import { YouTubeEmbed } from "@next/third-parties/google";
+import { notFound } from 'next/navigation';
+import { CustomMDX } from 'app/components/mdx';
+import { getSongs } from 'app/hudba/utils';
+import ChordSwitch from './chords';
+import { baseUrl } from 'app/basepath';
+import { YouTubeEmbed } from '@next/third-parties/google';
 
 export async function generateStaticParams() {
   let posts = getSongs();
@@ -30,7 +30,7 @@ export function generateMetadata({}) {
     info,
     openGraph: {
       title,
-      type: "article",
+      type: 'article',
       url: `${baseUrl}/hudba/${songs.slug}`,
       images: [
         {
@@ -39,7 +39,7 @@ export function generateMetadata({}) {
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title,
       images: [ogImage],
     },
@@ -67,14 +67,14 @@ export default function Song({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <section>
+    <section className="max-w-2xl">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
             headline: song.metadata.title,
             // datePublished: post.metadata.publishedAt,
             // dateModified: post.metadata.publishedAt,
@@ -84,28 +84,23 @@ export default function Song({ params }: { params: { slug: string } }) {
               : `/og?title=${encodeURIComponent(song.metadata.title)}`,
             url: `${baseUrl}/hudba/${song.slug}`,
             author: {
-              "@type": "Person",
-              name: "My Portfolio",
+              '@type': 'Person',
+              name: 'My Portfolio',
             },
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      <h1 className="font-bold text-white text-4xl uppercase">
         {song.metadata.title}
       </h1>
 
-      {song.metadata.info}
+      <p className="text-white font-medium uppercase">{song.metadata.info}</p>
       {song.metadata.youtube && (
         <div className="noprint">
           <YouTubeEmbed videoid={song.metadata.youtube} height={400} />
         </div>
       )}
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {/* {formatDate(post.metadata.publishedAt)} */}
-        </p>
-      </div>
-      <article className="songLyrics">
+      <article className="songLyrics space-y-8">
         <ChordSwitch>
           <CustomMDX source={song.content} />
         </ChordSwitch>

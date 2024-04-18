@@ -1,37 +1,41 @@
-import { Link } from "next-view-transitions";
+'use client';
+import { Link } from 'next-view-transitions';
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import classNames from 'classnames';
 
-const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/hudba": {
-    name: "hudba",
-  },
-};
-
-export function Navbar() {
+const Item = ({ label, slug }: { label: string; slug: string }) => {
+  const pathname = usePathname();
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
+    <li>
+      <Link
+        href={'/' + slug}
+        className="group block pr-8 text-white uppercase font-bold text-5xl "
+      >
+        <span
+          className={classNames(
+            'group-hover:w-32 group-hover:-ml-20 duration-500 transition-all w-0 h-[35px] bg-white inline-flex items-center justify-center mr-0 group-hover:mr-4 opacity-0 group-hover:opacity-100',
+            pathname.indexOf(slug) > -1 && 'w-32 -ml-20 mr-4 opacity-100'
+          )}
+        />
+        {label}
+      </Link>
+    </li>
+  );
+};
+export default function Navbar() {
+  return (
+    <div className="flex md:flex-col justify-between isolate z-10 pl-16 py-16 sticky top-0">
+      <div className="uppercase inline-block text-2xl tracking-wide relative text-white font-bold">
+        <Link href="/">Smyčcem</Link>
       </div>
-    </aside>
+      <div className="hidden md:block">
+        <ul className="space-y-5">
+          <Item label="Hudba" slug="hudba" />
+          <Item label="O projektu" slug="o-projektu" />
+          <Item label="Kontakt" slug="kontakt" />
+        </ul>
+      </div>
+    </div>
   );
 }

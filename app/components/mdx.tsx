@@ -1,7 +1,7 @@
-import { slugify } from "app/hudba/utils";
-import classNames from "classnames";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import React from "react";
+import { slugify } from 'app/hudba/utils';
+import classNames from 'classnames';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import React from 'react';
 
 function createHeading(level: number) {
   const Heading = ({ children }: { children: string }) => {
@@ -10,10 +10,10 @@ function createHeading(level: number) {
       `h${level}`,
       { id: slug },
       [
-        React.createElement("a", {
+        React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: "anchor",
+          className: 'anchor',
         }),
       ],
       children
@@ -35,8 +35,10 @@ let components = {
   Chords({ text, block }: { text: string; block: boolean }) {
     return (
       <span
-        className={classNames("chords", block ? "block" : "inline")}
-        style={{ color: "tomato" }}
+        className={classNames(
+          'chords text-white px-2 py-1 rounded bg-orange-500/80',
+          block ? 'block' : 'inline'
+        )}
       >
         [{text}]
       </span>
@@ -46,8 +48,8 @@ let components = {
 
 export function CustomMDX({ source }: { source: string }) {
   const src = source
-    .replaceAll("[", "<Chords text='")
-    .replaceAll("]\\", "' block/>\\")
-    .replaceAll("]", "'/>");
+    .replaceAll('[', "<Chords text='")
+    .replaceAll(']\\', "' block/>\\")
+    .replaceAll(']', "'/>");
   return <MDXRemote source={src} components={components as any} />;
 }

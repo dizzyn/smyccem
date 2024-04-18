@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { getSongs } from "app/hudba/utils";
+import Link from 'next/link';
+import { getSongs } from 'app/hudba/utils';
 
 export function BlogPosts() {
   let allSongs = getSongs();
 
   return (
-    <div>
+    <div className="flex flex-col">
       {allSongs
         .sort((a, b) => {
           if (new Date(a.metadata.title) > new Date(b.metadata.title)) {
@@ -16,17 +16,13 @@ export function BlogPosts() {
         .map((songs) => (
           <Link
             key={songs.slug}
-            className="flex flex-col space-y-1 mb-4"
+            className="text-white group font-bold relative py-2 px-3 text-2xl"
             href={`/hudba/${songs.slug}`}
           >
-            <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-              <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                {/* {formatDate(songs.metadata.publishedAt, false)} */}
-              </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {songs.metadata.title}
-              </p>
-            </div>
+            <span className="absolute top-0 bottom-0 right-0 z-0 bg-white group-hover:left-0 duration-300 transition-all left-full" />
+            <span className="z-10 isolate transition-all duration-500 group-hover:text-black delay-150">
+              {songs.metadata.title}
+            </span>
           </Link>
         ))}
     </div>

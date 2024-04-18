@@ -1,29 +1,31 @@
-import "./global.css";
-import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Navbar } from "./components/nav";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
-import { ViewTransitions } from "next-view-transitions";
-import classNames from "classnames";
-import { baseUrl } from "./basepath";
+import './global.css';
+import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ViewTransitions } from 'next-view-transitions';
+import { baseUrl } from './basepath';
+import classNames from 'classnames';
+import { GeistSans } from 'geist/font/sans';
+import Navbar from './components/nav';
+import Wrapper from './components/wrapper';
+import Background from './components/background';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Next.js Portfolio Starter",
-    template: "%s | Next.js Portfolio Starter",
+    default: 'Trhni si smyčcem',
+    template: '%s | Next.js Portfolio Starter',
   },
-  description: "This is my portfolio.",
+  description:
+    'Trhni si smyčcem je komorní těleso mezi punkem a filharmonií. Hrajeme vlastní písně. Je nás 6 a máme klasické hudební nástroje. Nejlépe se nám vystupuje mezi skvělými lidmi v zajímavých prostorech a v přírodě. Naše písně reflektují sociální, filosofická a zahradnická témata. Patříme pod magický realismus.',
   openGraph: {
-    title: "My Portfolio",
-    description: "This is my portfolio.",
+    title: 'Trhni si smyčcemo',
+    description:
+      'Trhni si smyčcem je komorní těleso mezi punkem a filharmonií. Hrajeme vlastní písně. Je nás 6 a máme klasické hudební nástroje. Nejlépe se nám vystupuje mezi skvělými lidmi v zajímavých prostorech a v přírodě. Naše písně reflektují sociální, filosofická a zahradnická témata. Patříme pod magický realismus.',
     url: baseUrl,
-    siteName: "My Portfolio",
-    locale: "en_US",
-    type: "website",
+    siteName: 'Trhni si smyčcem',
+    locale: 'cs_CZ',
+    type: 'website',
   },
   robots: {
     index: true,
@@ -31,9 +33,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
 };
@@ -45,22 +47,18 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-      <html
-        lang="en"
-        className={classNames(
-          "text-black bg-white dark:text-white dark:bg-black",
-          GeistSans.variable,
-          GeistMono.variable
-        )}
-      >
-        <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-          <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-            <Navbar />
-            {children}
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
+      <html lang="cs" className="h-full">
+        <body
+          className={classNames(
+            GeistSans.variable,
+            'bg-black h-full grid grid-cols-[460px_auto] lg:gap-16 overflow-hidden'
+          )}
+        >
+          <Navbar />
+          <Wrapper>{children}</Wrapper>
+          <Background />
+          <Analytics />
+          <SpeedInsights />
         </body>
       </html>
     </ViewTransitions>
