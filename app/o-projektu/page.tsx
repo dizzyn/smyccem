@@ -1,45 +1,33 @@
-import React from 'react';
+import React from "react";
 
 export default function Page() {
   return (
     <section className="max-w-2xl">
       <div className="text-2xl font-bold text-white space-y-8 leading-9">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
-          quibusdam magni reprehenderit voluptates harum saepe? Quidem quasi
-          nobis deserunt quia. Sint mollitia laudantium ipsam, laboriosam quos
-          aperiam sapiente commodi illo?
+          Trhni si smyčcem je hudební skupina s vlastní tvorbou. Hrajeme
+          akusticky pro různé příležitosti, spíše k poslechu než k tanci.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          similique aperiam corporis sit hic assumenda consequatur dolore
-          architecto, ipsa, fuga fugiat laboriosam error quaerat velit minima ea
-          quidem quam aliquid.
+          Kapela vznikla v roce 2022 jako sextet, vystupujeme v různých
+          sestavách i s hosty. Máme klasické nástroje a naše písně spadají pod
+          mnoho žánrů.
         </p>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. At molestias
-          reprehenderit autem! Provident quod ratione impedit harum delectus
-          autem laborum eum commodi pariatur natus sapiente nulla, ipsam veniam
-          id cum!
+          Poetika čerpáme z rozervaného Českého severu a magické reality
+          pražských Nuslí. Inspirují nás sociální a literární témata, hrajeme
+          pro radost i na protest.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
-          quibusdam magni reprehenderit voluptates harum saepe? Quidem quasi
-          nobis deserunt quia. Sint mollitia laudantium ipsam, laboriosam quos
-          aperiam sapiente commodi illo?
+          Naše hudba se nejlépe hodí k různým kulturním příležitostem, máme
+          blízko k divadlu, poezii, vyprávění, architektuře, komunitám a lidem
+          duchovním i světským.
         </p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          similique aperiam corporis sit hic assumenda consequatur dolore
-          architecto, ipsa, fuga fugiat laboriosam error quaerat velit minima ea
-          quidem quam aliquid.
+          Pokud to prostory umožňují, dokážeme hrát bez ozvučení. Zvládne ale
+          také velká podia pod širým nebem.
         </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. At molestias
-          reprehenderit autem! Provident quod ratione impedit harum delectus
-          autem laborum eum commodi pariatur natus sapiente nulla, ipsam veniam
-          id cum!
-        </p>
+        <div>[FOTOGRAFIE & VIDEA]</div>
       </div>
     </section>
   );
