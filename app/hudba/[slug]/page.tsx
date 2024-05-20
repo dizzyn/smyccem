@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
 import { getSongs } from 'app/hudba/utils';
-import ChordSwitch from './chords';
 import { baseUrl } from 'app/basepath';
-import { YouTubeEmbed } from '@next/third-parties/google';
+import classNames from 'classnames';
+import ChordsSwitch from '../../components/chordsSwitch';
+import VideoSwitch from 'app/components/videoSwitch';
 
 export async function generateStaticParams() {
   let posts = getSongs();
@@ -67,7 +68,7 @@ export default function Song({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <section className="max-w-2xl">
+    <section>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -90,21 +91,30 @@ export default function Song({ params }: { params: { slug: string } }) {
           }),
         }}
       />
-      <h1 className="font-bold text-white text-4xl uppercase">
-        {song.metadata.title}
-      </h1>
 
-      <p className="text-white font-medium uppercase">{song.metadata.info}</p>
-      {song.metadata.youtube && (
-        <div className="noprint">
-          <YouTubeEmbed videoid={song.metadata.youtube} height={400} />
+      <div className="space-y-8">
+        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-y-1 px-6 py-3 uppercase bg-white">
+          <h1 className="font-bold text-xl lg:text-3xl text-black">
+            {song.metadata.title}
+          </h1>
+          <div className="flex items-center gap-4">
+            <ChordsSwitch />
+            <VideoSwitch videoID={song.metadata.youtube} />
+          </div>
         </div>
-      )}
-      <article className="songLyrics space-y-8">
-        <ChordSwitch>
+
+        {song.metadata.info && (
+          <div className="px-6">
+            <p className="text-white font-medium uppercase">
+              {song.metadata.info}
+            </p>
+          </div>
+        )}
+
+        <article className={classNames('songLyrics px-6')}>
           <CustomMDX source={song.content} />
-        </ChordSwitch>
-      </article>
+        </article>
+      </div>
     </section>
   );
 }

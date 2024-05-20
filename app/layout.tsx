@@ -7,14 +7,13 @@ import { baseUrl } from './basepath';
 import classNames from 'classnames';
 import { GeistSans } from 'geist/font/sans';
 import Navbar from './components/nav';
-import Wrapper from './components/wrapper';
 import Background from './components/background';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: 'Trhni si smyčcem',
-    template: '%s | Next.js Portfolio Starter',
+    template: '%s – Trhni si smyčcem',
   },
   description:
     'Trhni si smyčcem je komorní těleso mezi punkem a filharmonií. Hrajeme vlastní písně. Je nás 6 a máme klasické hudební nástroje. Nejlépe se nám vystupuje mezi skvělými lidmi v zajímavých prostorech a v přírodě. Naše písně reflektují sociální, filosofická a zahradnická témata. Patříme pod magický realismus.',
@@ -49,14 +48,16 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="cs" className="h-full">
         <body
-          className={classNames(
-            GeistSans.variable,
-            'bg-black h-full grid grid-cols-[460px_auto] lg:gap-16 overflow-hidden'
-          )}
+          className={classNames(GeistSans.variable, 'h-full overflow-hidden')}
         >
-          <Navbar />
-          <Wrapper>{children}</Wrapper>
           <Background />
+          <div
+            className="overflow-scroll lg:overflow-hidden h-full lg:grid lg:grid-cols-[0.8fr_1.2fr]"
+            id="wrapper"
+          >
+            <Navbar />
+            <div className="lg:py-16 overflow-scroll">{children}</div>
+          </div>
           <Analytics />
           <SpeedInsights />
         </body>

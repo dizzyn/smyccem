@@ -44,7 +44,7 @@ export default function Concerts() {
   }, [concertsArr]);
 
   return (
-    <div className="flex bg-black md:bg-transparent items-center md:gap-2 text-white justify-between md:justify-end px-8 md:pr-16 fixed bottom-0 left-0 right-0 md:relative">
+    <div className="flex flex-col lg:flex-row bg-black md:bg-transparent items-center md:gap-2 text-white md:items-end md:justify-center px-8 py-2 md:pr-16 fixed bottom-0 left-0 right-0 md:relative">
       <Link
         href="#"
         className={`text-xs md:text-sm py-4 text-ellipsis whitespace-nowrap transition-all font-mono uppercase md:px-4 hover:underline decoration-dotted underline-offset-4 cursor-pointer duration-500  ${

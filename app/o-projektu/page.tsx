@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function Page() {
   return (
-    <section className="max-w-2xl">
-      <div className="text-2xl font-bold text-white space-y-8 leading-9">
+    <section className="px-6 py-4">
+      <div className="text-xl lg:text-2xl font-medium text-white space-y-8 leading-9">
         <p>
           Trhni si smyčcem je hudební skupina s vlastní tvorbou. Hrajeme
           akusticky pro různé příležitosti, spíše k poslechu než k tanci.
