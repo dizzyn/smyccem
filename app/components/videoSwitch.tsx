@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { PiCross, PiX, PiYoutubeLogo } from 'react-icons/pi';
+import { PiX, PiYoutubeLogo } from 'react-icons/pi';
 
 export default function VideoSwitch({ videoID }: { videoID?: string }) {
   const [showVideo, setShowVideo] = useState(false);

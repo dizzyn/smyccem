@@ -1,0 +1,34 @@
+[
+  {
+    "type": "Oktet",
+    "venue": "Kavárna co hledá jméno",
+    "city": "Praha",
+    "date": "2019-11-01",
+    "time": "20:00",
+    "event": "https://www.facebook.com/events/2410003662590009/"
+  },
+  {
+    "type": "Kvartet",
+    "venue": "Kavárna co hledá jméno 2",
+    "city": "Praha",
+    "date": "2019-11-01",
+    "time": "20:00",
+    "event": "https://www.facebook.com/events/2410003662590009/"
+  },
+  {
+    "type": "Kvintet",
+    "venue": "Kavárna co hledá jméno 3",
+    "city": "Praha",
+    "date": "2019-11-01",
+    "time": "20:00",
+    "event": "https://www.facebook.com/events/2410003662590009/"
+  },
+  {
+    "type": "Oktet",
+    "venue": "Kavárna co hledá jméno 4",
+    "city": "Praha",
+    "date": "2019-11-01",
+    "time": "20:00",
+    "event": "https://www.facebook.com/events/2410003662590009/"
+  }
+]

@@ -10,6 +10,10 @@ const navItems = [
     slug: 'hudba',
   },
   {
+    label: 'Koncerty',
+    slug: 'koncerty',
+  },
+  {
     label: 'O projektu',
     slug: 'o-projektu',
   },

@@ -6,5 +6,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <Songs />;
+  return (
+    <section className="py-4">
+      <Songs />
+    </section>
+  );
 }

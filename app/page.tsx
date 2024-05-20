@@ -1,5 +1,9 @@
-import { BlogPosts } from 'app/components/songs';
+import Concerts from './components/concerts';
 
 export default function Page() {
-  return <></>;
+  return (
+    <>
+      <Concerts />
+    </>
+  );
 }
