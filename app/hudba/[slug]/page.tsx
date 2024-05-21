@@ -2,16 +2,13 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { getSongs } from "app/hudba/utils";
 import { baseUrl } from "app/basepath";
-import classNames from "classnames";
-import VideoSwitch from "app/components/videoSwitch";
-import { PiArrowArcLeft, PiArrowLeft, PiArrowLeftBold } from "react-icons/pi";
 import Song from "app/components/song";
 
 export async function generateStaticParams() {
-  let posts = getSongs();
+  let songs = getSongs();
 
-  return posts.map((post) => ({
-    slug: post.slug,
+  return songs.map((song) => ({
+    slug: song.slug,
   }));
 }
 

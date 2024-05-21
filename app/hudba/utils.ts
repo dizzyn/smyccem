@@ -57,7 +57,7 @@ function getMDXData(dir: string) {
 }
 
 export function getSongs() {
-  return getMDXData(path.join(process.cwd(), "app", "hudba", "posts"));
+  return getMDXData(path.join(process.cwd(), "app", "hudba", "songs"));
 }
 
 // export function formatDate(date: string, includeRelative = false) {

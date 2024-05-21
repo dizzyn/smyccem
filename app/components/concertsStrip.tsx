@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { parseDate } from 'app/utils/date';
-import concerts from '../koncerty/concerts.json';
-import Link from 'next/link';
-import React, { ReactNode, useEffect, useState } from 'react';
-import { PiEnvelope, PiFacebookLogo, PiInstagramLogo } from 'react-icons/pi';
+import type { Concert } from "app/fetchConcerts";
+import { parseDate } from "app/utils/date";
+import Link from "next/link";
+import React, { ReactNode, useEffect, useState } from "react";
+import { PiEnvelope, PiFacebookLogo, PiInstagramLogo } from "react-icons/pi";
 
 const SocialMediaLink = ({
   href,
@@ -23,7 +23,7 @@ const SocialMediaLink = ({
   );
 };
 
-export default function ConcertsStrip() {
+function ConcertsStrip({ concerts }: { concerts: Concert[] }) {
   const [currentConcert, setCurrentConcert] = useState(concerts[0]);
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
@@ -49,7 +49,7 @@ export default function ConcertsStrip() {
       <Link
         href="/koncerty"
         className={`text-xs text-white md:text-sm text-ellipsis whitespace-nowrap transition-all font-mono uppercase md:px-4 hover:underline decoration-dotted underline-offset-4 cursor-pointer duration-500  ${
-          fade ? 'opacity-100 ' : 'opacity-0'
+          fade ? "opacity-100 " : "opacity-0"
         }`}
       >
         {parseDate(currentConcert.date)} - {currentConcert.venue}
@@ -68,3 +68,5 @@ export default function ConcertsStrip() {
     </div>
   );
 }
+
+export default ConcertsStrip;
