@@ -5,6 +5,7 @@ import { baseUrl } from 'app/basepath';
 import classNames from 'classnames';
 import ChordsSwitch from '../../components/chordsSwitch';
 import VideoSwitch from 'app/components/videoSwitch';
+import { PiArrowArcLeft, PiArrowLeft } from 'react-icons/pi';
 
 export async function generateStaticParams() {
   let posts = getSongs();
@@ -94,7 +95,13 @@ export default function Song({ params }: { params: { slug: string } }) {
 
       <div className="space-y-8">
         <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-y-1 px-6 py-3 uppercase bg-white">
-          <h1 className="font-bold text-xl lg:text-3xl text-black">
+          <h1 className="font-bold text-xl lg:text-3xl text-black flex items-center justify-center lg:justify-start w-full text-center gap-1.5 lg:gap-2 relative">
+            <a
+              href="/hudba"
+              className="absolute left-0 top-1/2 lg:relative hover:-left-2 transition-all"
+            >
+              <PiArrowLeft className="w-8 h-8 lg:w-10 lg:h-10 text-black" />
+            </a>
             {song.metadata.title}
           </h1>
           <div className="flex items-center gap-4">

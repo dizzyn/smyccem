@@ -23,7 +23,7 @@ export default function ChordsSwitch() {
   return (
     chords !== undefined && (
       <button
-        className="flex gap-1 text-sm items-center cursor-pointer"
+        className="flex gap-1 text-sm items-center cursor-pointer whitespace-nowrap"
         onClick={toggleChords}
       >
         <PiGuitar className="text-slate-500 w-7 h-7" />
