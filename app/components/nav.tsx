@@ -101,9 +101,14 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={() => setIsMenuOpen(false)}
-          className="text-2xl z-20 uppercase text-white font-bold lg:text-4xl"
+          className="group flex items-center justify-center lg:block lg:pr-8 text-white uppercase font-bold text-2xl lg:text-3xl xl:text-4xl whitespace-nowrap"
         >
-          Smyčcem
+          <span
+            className={classNames(
+              'hidden lg:group-hover:w-20 xl:group-hover:w-32 lg:group-hover:-ml-16 xl:group-hover:-ml-20 duration-500 transition-all w-0 lg:h-[26px] xl:h-[30px] bg-white lg:inline-flex items-center justify-center mr-0 group-hover:mr-4 opacity-0 group-hover:opacity-100'
+            )}
+          />
+          <span className="lg:translate-y-1">Smyčcem</span>
         </Link>
         <div
           className={classNames(
