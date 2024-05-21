@@ -1,5 +1,11 @@
 import React from 'react';
 
+export const metadata = {
+  title: 'Kontakt',
+  description:
+    'Kontaktujte nás ohledně koncertů, spolupráce nebo jiných dotazů.',
+};
+
 export default function Page() {
   return (
     <section className="px-6 py-4">

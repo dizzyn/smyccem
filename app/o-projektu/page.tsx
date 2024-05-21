@@ -1,5 +1,10 @@
 import React from 'react';
 
+export const metadata = {
+  title: 'O projektu',
+  description: 'O projektu Smyčcem',
+};
+
 export default function Page() {
   return (
     <section className="px-6 py-4">
