@@ -1,34 +1,22 @@
-'use client';
+"use client";
+import { useState } from "react";
+import { PiGuitar } from "react-icons/pi";
 
-import { ReactNode, useCallback, useEffect, useState } from 'react';
-import { PiGuitar } from 'react-icons/pi';
+const lsKey = "chords";
 
-const lsKey = 'chords';
-
-export default function ChordsSwitch() {
+export function useChordSwitch() {
   const [chords, setChords] = useState<boolean>();
 
-  useEffect(() => {
-    setChords(localStorage && localStorage.getItem(lsKey) == '1');
-  }, []);
-
-  const toggleChords = useCallback(() => {
-    try {
-      if (chords) localStorage.removeItem(lsKey);
-      else localStorage.setItem(lsKey, '1');
-      setChords(!chords);
-    } catch (e) {}
-  }, [chords]);
-
-  return (
-    chords !== undefined && (
+  return [
+    () => (
       <button
         className="flex gap-1 text-sm items-center cursor-pointer whitespace-nowrap"
-        onClick={toggleChords}
+        onClick={() => setChords(!chords)}
       >
         <PiGuitar className="text-slate-500 w-7 h-7" />
-        {chords ? 'Skrýt akordy' : 'Zobrazit akordy'}
+        {chords ? "Skrýt akordy" : "Zobrazit akordy"}
       </button>
-    )
-  );
+    ),
+    chords ? "showChords" : "",
+  ];
 }

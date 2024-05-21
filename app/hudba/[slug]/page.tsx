@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation';
-import { CustomMDX } from 'app/components/mdx';
-import { getSongs } from 'app/hudba/utils';
-import { baseUrl } from 'app/basepath';
-import classNames from 'classnames';
-import ChordsSwitch from '../../components/chordsSwitch';
-import VideoSwitch from 'app/components/videoSwitch';
-import { PiArrowArcLeft, PiArrowLeft, PiArrowLeftBold } from 'react-icons/pi';
+import { notFound } from "next/navigation";
+import { CustomMDX } from "app/components/mdx";
+import { getSongs } from "app/hudba/utils";
+import { baseUrl } from "app/basepath";
+import classNames from "classnames";
+import VideoSwitch from "app/components/videoSwitch";
+import { PiArrowArcLeft, PiArrowLeft, PiArrowLeftBold } from "react-icons/pi";
+import Song from "app/components/song";
 
 export async function generateStaticParams() {
   let posts = getSongs();
@@ -32,7 +32,7 @@ export function generateMetadata({}) {
     info,
     openGraph: {
       title,
-      type: 'article',
+      type: "article",
       url: `${baseUrl}/hudba/${songs.slug}`,
       images: [
         {
@@ -41,7 +41,7 @@ export function generateMetadata({}) {
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       images: [ogImage],
     },
@@ -61,7 +61,7 @@ export interface Song {
   content: string;
 }
 
-export default function Song({ params }: { params: { slug: string } }) {
+export default function SongPage({ params }: { params: { slug: string } }) {
   let song = getSongs().find((post) => post.slug === params.slug);
 
   if (!song) {
@@ -75,8 +75,8 @@ export default function Song({ params }: { params: { slug: string } }) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
             headline: song.metadata.title,
             // datePublished: post.metadata.publishedAt,
             // dateModified: post.metadata.publishedAt,
@@ -86,42 +86,15 @@ export default function Song({ params }: { params: { slug: string } }) {
               : `/og?title=${encodeURIComponent(song.metadata.title)}`,
             url: `${baseUrl}/hudba/${song.slug}`,
             author: {
-              '@type': 'Person',
-              name: 'My Portfolio',
+              "@type": "Person",
+              name: "My Portfolio",
             },
           }),
         }}
       />
-
-      <div className="space-y-8">
-        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-y-1 px-6 py-3 uppercase bg-white">
-          <h1 className="font-bold text-xl lg:text-3xl text-black flex items-center justify-center lg:justify-start w-full text-center gap-1.5 lg:gap-2 relative">
-            <a
-              href="/hudba"
-              className="absolute left-0 top-1/2 lg:relative hover:-left-2 transition-all"
-            >
-              <PiArrowLeftBold className="w-8 h-8 lg:w-10 lg:h-10 text-black" />
-            </a>
-            {song.metadata.title}
-          </h1>
-          <div className="flex items-center gap-4">
-            <ChordsSwitch />
-            <VideoSwitch videoID={song.metadata.youtube} />
-          </div>
-        </div>
-
-        {song.metadata.info && (
-          <div className="px-6">
-            <p className="text-white font-medium uppercase">
-              {song.metadata.info}
-            </p>
-          </div>
-        )}
-
-        <article className={classNames('songLyrics px-6')}>
-          <CustomMDX source={song.content} />
-        </article>
-      </div>
+      <Song {...song.metadata}>
+        <CustomMDX source={song.content} />
+      </Song>
     </section>
   );
 }
