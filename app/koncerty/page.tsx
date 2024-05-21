@@ -1,4 +1,4 @@
-import { parseDate } from 'app/utils/parseDate';
+import { getDate, getMonth } from 'app/utils/date';
 import concerts from './concerts.json';
 
 export const metadata = {
@@ -7,13 +7,6 @@ export const metadata = {
 };
 
 export default function Page() {
-  const getDate = (date: string) => {
-    return date.split('-')[2];
-  };
-
-  const getMonth = (date: string) => {
-    return date.split('-')[1];
-  };
   return (
     <section className="px-6 py-8 lg:py-4">
       <ul className="text-xl lg:text-2xl font-medium text-white space-y-8 lg:space-y-10 leading-9">

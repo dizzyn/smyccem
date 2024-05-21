@@ -1,6 +1,6 @@
 'use client';
 
-import { parseDate } from 'app/utils/parseDate';
+import { parseDate } from 'app/utils/date';
 import concerts from '../koncerty/concerts.json';
 import Link from 'next/link';
 import React, { ReactNode, useEffect, useState } from 'react';
