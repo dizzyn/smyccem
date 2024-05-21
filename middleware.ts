@@ -4,11 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
   const route = req.nextUrl.pathname;
 
-  console.log(
-    route,
-    "/hudba/" + slugify(decodeURIComponent(route.substring(7)))
-  );
-
+  // ze starého webu
   if (route.startsWith("/texty/"))
     return NextResponse.redirect(
       new URL(
@@ -17,6 +13,7 @@ export function middleware(req: NextRequest) {
       )
     );
 
+  // z vizitek
   if (route == "/um")
     return NextResponse.redirect(new URL("/hudba/ukradli_marii", req.url));
   if (route == "/jb")
