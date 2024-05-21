@@ -10,8 +10,8 @@ export default function Page() {
     <section className="px-6 py-4">
       <div className="text-xl lg:text-2xl font-medium text-white space-y-8 leading-9">
         <p>
-          Trhni si smyčcem je hudební skupina s vlastní tvorbou. Hrajeme
-          akusticky pro různé příležitosti, spíše k poslechu než k tanci.
+          Trhni si smyčcem je hudební skupina s vlastní tvorbou. Hrajeme pro
+          různé příležitosti, spíše k poslechu než k tanci.
         </p>
         <p>
           Kapela vznikla v roce 2022 jako sextet, vystupujeme v různých
