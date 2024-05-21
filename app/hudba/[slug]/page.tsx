@@ -5,7 +5,7 @@ import { baseUrl } from 'app/basepath';
 import classNames from 'classnames';
 import ChordsSwitch from '../../components/chordsSwitch';
 import VideoSwitch from 'app/components/videoSwitch';
-import { PiArrowArcLeft, PiArrowLeft } from 'react-icons/pi';
+import { PiArrowArcLeft, PiArrowLeft, PiArrowLeftBold } from 'react-icons/pi';
 
 export async function generateStaticParams() {
   let posts = getSongs();
@@ -100,7 +100,7 @@ export default function Song({ params }: { params: { slug: string } }) {
               href="/hudba"
               className="absolute left-0 top-1/2 lg:relative hover:-left-2 transition-all"
             >
-              <PiArrowLeft className="w-8 h-8 lg:w-10 lg:h-10 text-black" />
+              <PiArrowLeftBold className="w-8 h-8 lg:w-10 lg:h-10 text-black" />
             </a>
             {song.metadata.title}
           </h1>
