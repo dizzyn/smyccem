@@ -93,7 +93,7 @@ export default function Navbar() {
     <>
       <header
         className={classNames(
-          'p-6 lg:h-full h-auto border-b-2 lg:border-none border-dashed border-white/20 lg:pl-12 lg:bg-transparent transition-all lg:backgrdop-blur-none xl:pl-16 lg:py-16 z-20 flex lg:flex-col sticky top-0 items-center justify-between lg:justify-between lg:items-start',
+          'p-6 lg:h-full print:hidden h-auto border-b-2 lg:border-none border-dashed border-white/20 lg:pl-12 lg:bg-transparent transition-all lg:backgrdop-blur-none xl:pl-16 lg:py-16 z-20 flex lg:flex-col sticky top-0 items-center justify-between lg:justify-between lg:items-start',
           isScrolled &&
             'bg-black/80 backdrop-blur-sm border-black/80 border-solid lg:backdrop-blur-[0]'
         )}
@@ -101,14 +101,17 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={() => setIsMenuOpen(false)}
-          className="group flex items-center justify-center lg:block lg:pr-8 text-white uppercase font-bold text-2xl lg:text-3xl xl:text-4xl whitespace-nowrap"
+          className="group flex items-center justify-center lg:pr-8"
         >
           <span
             className={classNames(
-              'hidden lg:group-hover:w-20 xl:group-hover:w-32 lg:group-hover:-ml-16 xl:group-hover:-ml-20 duration-500 transition-all w-0 lg:h-[26px] xl:h-[30px] bg-white lg:inline-flex items-center justify-center mr-0 group-hover:mr-4 opacity-0 group-hover:opacity-100'
+              'hidden lg:group-hover:w-20 xl:group-hover:w-32 lg:group-hover:-ml-16 xl:group-hover:-ml-20 duration-500 transition-all w-0 lg:h-16 xl:h-16 bg-white lg:inline-flex items-center justify-center mr-0 group-hover:mr-4 opacity-0 group-hover:opacity-100'
             )}
           />
-          <span className="lg:translate-y-1">Smyčcem</span>
+          <span className="inline-flex flex-col uppercase text-white font-bold whitespace-nowrap">
+            <span className="text-sm lg:text-base xl:text-lg">Trhni si</span>
+            <span className="text-2xl lg:text-3xl xl:text-4xl">Smyčcem</span>
+          </span>
         </Link>
         <div
           className={classNames(

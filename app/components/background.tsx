@@ -39,7 +39,7 @@ export default function Background() {
     <>
       <div
         className={classNames(
-          'absolute inset-0 mix-blend-multiply -z-10',
+          'absolute inset-0 mix-blend-multiply -z-10 print:hidden',
           backgrounds[id % backgrounds.length].color
         )}
       />
@@ -47,7 +47,7 @@ export default function Background() {
         src={'/images/' + id + '.jpeg'}
         alt="Trhni si smyčcem"
         fill
-        className="-z-20 opacity-90 object-cover scale-125 grayscale contrast-125 brightness-110"
+        className="-z-20 print:hidden opacity-90 object-cover scale-125 grayscale contrast-125 brightness-110"
       />
     </>
   );

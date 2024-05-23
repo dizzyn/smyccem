@@ -1,9 +1,9 @@
-import fetchConcerts from "app/fetchConcerts";
-import { getDate, getMonth } from "app/utils/date";
-import { Link } from "next-view-transitions";
-import { use, Suspense } from "react";
-import { PiArrowUpRightBold } from "react-icons/pi";
-import ErrorBoundary from "./errorBoundary";
+import fetchConcerts from 'app/fetchConcerts';
+import { getDate, getMonth } from 'app/utils/date';
+import { Link } from 'next-view-transitions';
+import { use, Suspense } from 'react';
+import { PiArrowUpRightBold } from 'react-icons/pi';
+import ErrorBoundary from './errorBoundary';
 
 // Data jsou zde:
 // – https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/edit#gid=1460709352
@@ -30,14 +30,14 @@ function List() {
               <div>
                 {[concert.city, concert.time, concert.comment]
                   .filter((a) => !!a)
-                  .join(", ")}
+                  .join(', ')}
               </div>
             </div>
           </div>
           {concert.url && (
             <Link
               href={concert.url}
-              className="bg-white hover:bg-black group transition-all w-12 h-12 md:w-20 md:h-20 flex items-center justify-center"
+              className="bg-white shrink-0 hover:bg-black group transition-all w-12 h-12 md:w-20 md:h-20 flex items-center justify-center"
             >
               <PiArrowUpRightBold className="w-8 h-8 md:w-12 md:h-12 text-black group-hover:text-white transition-all" />
             </Link>
@@ -50,10 +50,8 @@ function List() {
 
 export default function Concerts() {
   return (
-    <section className="px-6 pr-12 py-8 lg:py-4">
-      <Suspense fallback="...">
-        <List />
-      </Suspense>
-    </section>
+    <Suspense fallback="...">
+      <List />
+    </Suspense>
   );
 }

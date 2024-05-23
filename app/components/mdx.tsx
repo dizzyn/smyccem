@@ -36,7 +36,7 @@ let components = {
     return (
       <span
         className={classNames(
-          'chords text-white px-2 py-1 rounded bg-orange-500/80',
+          'chords text-slate-800 text-lg font-bold px-2 py-1 rounded bg-white',
           block ? 'block' : 'inline'
         )}
       >

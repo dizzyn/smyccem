@@ -25,8 +25,11 @@
   display: inline;
 }
 
+* {
+  @apply print:text-black;
+}
 .songLyrics {
-  @apply text-xl lg:text-2xl text-white leading-9;
+  @apply text-xl lg:text-2xl text-white leading-9 max-w-3xl;
 
   a {
     @apply underline transition-all decoration-neutral-400 underline-offset-2 decoration-[0.1em];

@@ -48,15 +48,20 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="cs" className="h-full">
         <body
-          className={classNames(GeistSans.variable, 'h-full overflow-hidden')}
+          className={classNames(
+            GeistSans.variable,
+            'h-full overflow-hidden print:overflow-visible'
+          )}
         >
           <Background />
           <div
-            className="overflow-scroll lg:overflow-hidden h-full lg:grid lg:grid-cols-[0.8fr_1.2fr]"
+            className="overflow-auto lg:overflow-hidden print:overflow-visible h-full lg:grid lg:grid-cols-[0.8fr_1.2fr]"
             id="wrapper"
           >
             <Navbar />
-            <div className="lg:py-16 overflow-scroll">{children}</div>
+            <div className="lg:py-16 overflow-auto print:overflow-visible">
+              {children}
+            </div>
           </div>
           <Analytics />
           <SpeedInsights />
