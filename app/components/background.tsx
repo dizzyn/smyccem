@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-export default function Background() {
+export default function Background({ isVideo }: { isVideo?: boolean }) {
   function randomIntFromInterval(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -35,7 +37,15 @@ export default function Background() {
       color: 'bg-indigo-700',
     },
   ];
-  return (
+  return isVideo ? (
+    <div
+      className={classNames(
+        'absolute inset-0 flex items-center justify-center mix-blend-multiply -z-10 print:hidden bg-black'
+      )}
+    >
+      <div className="text-white/20">VIDEO DIV</div>
+    </div>
+  ) : (
     <>
       <div
         className={classNames(

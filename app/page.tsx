@@ -1,6 +1,6 @@
-import { Suspense, use } from "react";
-import ConcertsStrip from "./components/concertsStrip";
-import fetchConcerts from "./fetchConcerts";
+import { Suspense, use } from 'react';
+import ConcertsStrip from './components/concertsStrip';
+import fetchConcerts from './fetchConcerts';
 
 function ConcertsStripWrap() {
   const concerts = use(fetchConcerts());
