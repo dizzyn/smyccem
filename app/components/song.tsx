@@ -1,10 +1,10 @@
-'use client';
-import { PiArrowLeftBold } from 'react-icons/pi';
-import VideoSwitch from './videoSwitch';
-import { useChordSwitch } from './chordsSwitch';
-import classNames from 'classnames';
-import { ReactNode } from 'react';
-import { Link } from 'next-view-transitions';
+"use client";
+import { PiArrowLeftBold } from "react-icons/pi";
+import VideoSwitch from "./videoSwitch";
+import { useChordSwitch } from "./chordsSwitch";
+import classNames from "classnames";
+import { ReactNode } from "react";
+import { Link } from "next-view-transitions";
 
 function Song({
   children,
@@ -43,7 +43,7 @@ function Song({
         </div>
       )}
 
-      <article className={classNames('songLyrics px-6', chordsCls)}>
+      <article className={classNames("songLyrics px-6", chordsCls)}>
         {children}
       </article>
     </div>

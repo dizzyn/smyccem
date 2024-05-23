@@ -3,25 +3,7 @@
 import type { Concert } from "app/fetchConcerts";
 import { parseDate } from "app/utils/date";
 import Link from "next/link";
-import React, { ReactNode, useEffect, useState } from "react";
-import { PiEnvelope, PiFacebookLogo, PiInstagramLogo } from "react-icons/pi";
-
-const SocialMediaLink = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) => {
-  return (
-    <Link
-      href={href}
-      className="w-10 shrink-0 h-10 flex items-center justify-center hover:bg-white hover:text-black text-white transition-all"
-    >
-      {children}
-    </Link>
-  );
-};
+import React, { useEffect, useState } from "react";
 
 function ConcertsStrip({ concerts }: { concerts: Concert[] }) {
   const [currentConcert, setCurrentConcert] = useState(concerts[0]);
@@ -54,17 +36,6 @@ function ConcertsStrip({ concerts }: { concerts: Concert[] }) {
       >
         {parseDate(currentConcert.date)} - {currentConcert.venue}
       </Link>
-      <div className="flex gap-2">
-        <SocialMediaLink href="https://www.instagram.com/smyccem/">
-          <PiInstagramLogo className="w-7 h-7" />
-        </SocialMediaLink>
-        <SocialMediaLink href="https://m.facebook.com/smyccem">
-          <PiFacebookLogo className="w-7 h-7" />
-        </SocialMediaLink>
-        <SocialMediaLink href="mailto:example@example.example">
-          <PiEnvelope className="w-7 h-7" />
-        </SocialMediaLink>
-      </div>
     </div>
   );
 }

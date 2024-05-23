@@ -28,8 +28,12 @@
 * {
   @apply print:text-black;
 }
+
 .songLyrics {
-  @apply text-xl lg:text-2xl text-white leading-9 max-w-3xl;
+  @apply text-sm md:text-base lg:text-2xl text-white  lg:leading-9 max-w-3xl;
+  @apply print:text-base print:columns-2;
+
+
 
   a {
     @apply underline transition-all decoration-neutral-400 underline-offset-2 decoration-[0.1em];

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export const metadata = {
-  title: 'O projektu',
-  description: 'O projektu Smyčcem',
+  title: "O projektu",
+  description: "O projektu Smyčcem",
 };
 
 export default function Page() {
@@ -32,7 +32,6 @@ export default function Page() {
           Pokud to prostory umožňují, dokážeme hrát bez ozvučení. Zvládne ale
           také velká podia pod širým nebem.
         </p>
-        <div>[FOTOGRAFIE & VIDEA]</div>
       </div>
     </section>
   );
