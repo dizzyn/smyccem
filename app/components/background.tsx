@@ -6,38 +6,14 @@ import classNames from "classnames";
 import { usePathname } from "next/navigation";
 
 const backgrounds = [
-  {
-    id: 0,
-    color: "bg-slate-500",
-  },
-  {
-    id: 1,
-    color: "bg-rose-500",
-  },
-  {
-    id: 2,
-    color: "bg-red-700",
-  },
-  {
-    id: 3,
-    color: "bg-amber-700",
-  },
-  {
-    id: 4,
-    color: "bg-violet-700",
-  },
-  {
-    id: 5,
-    color: "bg-slate-600",
-  },
-  {
-    id: 6,
-    color: "bg-green-700",
-  },
-  {
-    id: 7,
-    color: "bg-indigo-700",
-  },
+  "bg-slate-500",
+  "bg-rose-500",
+  "bg-red-700",
+  "bg-amber-700",
+  "bg-violet-700",
+  "bg-slate-600",
+  "bg-green-700",
+  "bg-indigo-700",
 ];
 
 export default function Background() {
@@ -46,7 +22,10 @@ export default function Background() {
   const [id, setId] = useState(0);
 
   useEffect(() => {
-    const arr = backgrounds.filter((a) => a.id !== id);
+    const arr = backgrounds
+      .map((color, id) => ({ color, id }))
+      .filter((a) => a.id !== id);
+
     setId(arr[Math.floor(Math.random() * arr.length) || 0].id);
   }, [path]);
 
@@ -65,7 +44,7 @@ export default function Background() {
       <div
         className={classNames(
           "absolute inset-0 mix-blend-multiply -z-10 transition-colors duration-[2000ms] print:hidden",
-          backgrounds[id % backgrounds.length].color
+          backgrounds[id % backgrounds.length]
         )}
       />
       <Image
