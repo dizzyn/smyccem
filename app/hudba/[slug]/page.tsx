@@ -12,8 +12,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({}) {
-  let song = getSongs().find((songs) => songs.slug === songs.slug);
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  let song = getSongs().find((songs) => songs.slug === params.slug);
   if (!song) {
     return;
   }
