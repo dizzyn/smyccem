@@ -13,12 +13,12 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({}) {
-  let songs = getSongs().find((songs) => songs.slug === songs.slug);
-  if (!songs) {
+  let song = getSongs().find((songs) => songs.slug === songs.slug);
+  if (!song) {
     return;
   }
 
-  let { title, youtube, info, thumbnail } = songs.metadata;
+  let { title, youtube, info, thumbnail } = song.metadata;
   let ogImage = thumbnail
     ? thumbnail
     : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
@@ -30,7 +30,7 @@ export function generateMetadata({}) {
     openGraph: {
       title,
       type: "article",
-      url: `${baseUrl}/hudba/${songs.slug}`,
+      url: `${baseUrl}/hudba/${song.slug}`,
       images: [
         {
           url: ogImage,
@@ -77,14 +77,16 @@ export default function SongPage({ params }: { params: { slug: string } }) {
             headline: song.metadata.title,
             // datePublished: post.metadata.publishedAt,
             // dateModified: post.metadata.publishedAt,
-            // description: post.metadata.summary,
+            description:
+              "Píseň skupiny Trhni si smyčcem, text, akordy" +
+              (song.metadata.youtube ? " a video " : ""),
             image: song.metadata.thumbnail
               ? `${baseUrl}${song.metadata.thumbnail}`
               : `/og?title=${encodeURIComponent(song.metadata.title)}`,
             url: `${baseUrl}/hudba/${song.slug}`,
             author: {
-              "@type": "Person",
-              name: "My Portfolio",
+              "@type": "Band",
+              name: "Trhni si smyčcem",
             },
           }),
         }}
