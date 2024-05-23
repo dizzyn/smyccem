@@ -1,7 +1,5 @@
 import "./global.css";
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 import { baseUrl } from "./basepath";
 import classNames from "classnames";
@@ -63,8 +61,6 @@ export default function RootLayout({
               {children}
             </div>
           </div>
-          <Analytics />
-          <SpeedInsights />
         </body>
       </html>
     </ViewTransitions>
