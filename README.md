@@ -6,8 +6,9 @@
 - Add package `pnpm add the-package`
 
 # Todo:
-- [x] Zobrazování akordů on/off
-- [x] Všechny texty 
-- [ ] Migrovat linky ze starého webu
-- [x] Youtube videa
-- [ ] Rotace koncertů
+- [ ] Youtube video na HP
+- [ ] youtube /carousel/ na "Hudba"
+- [ ] Stranka kontakty
+- [ ] Metadata
+- [ ] Favicona
+
