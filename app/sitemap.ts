@@ -8,10 +8,12 @@ export default async function sitemap() {
     info: post.metadata.info,
   }));
 
-  let routes = ["", "/hudba"].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }));
+  let routes = ["", "/hudba", "/o-projektu", "/koncerty", "/kontakt"].map(
+    (route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date().toISOString().split("T")[0],
+    })
+  );
 
   return [...routes, ...blogs];
 }

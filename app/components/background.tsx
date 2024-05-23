@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
@@ -19,14 +19,14 @@ const backgrounds = [
 export default function Background() {
   const path = usePathname();
 
-  const [id, setId] = useState(0);
+  let id: number;
 
-  useEffect(() => {
+  id = useMemo(() => {
     const arr = backgrounds
       .map((color, id) => ({ color, id }))
       .filter((a) => a.id !== id);
 
-    setId(arr[Math.floor(Math.random() * arr.length) || 0].id);
+    return arr[Math.floor(Math.random() * arr.length) || 0].id;
   }, [path]);
 
   return path == "/" ? (
