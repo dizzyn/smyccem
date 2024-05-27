@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { getSongs } from 'app/hudba/utils';
-import VideosCarousel from './videosCarousel';
+import Link from "next/link";
+import { getSongs } from "app/hudba/utils";
+import VideosCarousel from "./videosCarousel";
 
 export function Songs() {
   const allSongs = getSongs();

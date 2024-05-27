@@ -1,9 +1,9 @@
-import fetchConcerts from 'app/fetchConcerts';
-import { getDate, getMonth } from 'app/utils/date';
-import { Link } from 'next-view-transitions';
-import { use, Suspense } from 'react';
-import { PiArrowUpRightBold } from 'react-icons/pi';
-import ErrorBoundary from './errorBoundary';
+import fetchConcerts from "app/fetchConcerts";
+import { getDate, getMonth } from "app/utils/date";
+import { Link } from "next-view-transitions";
+import { use, Suspense } from "react";
+import { PiArrowUpRightBold } from "react-icons/pi";
+import ErrorBoundary from "./errorBoundary";
 
 // Data jsou zde:
 // – https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/edit#gid=1460709352
@@ -30,7 +30,7 @@ function List() {
               <div>
                 {[concert.city, concert.time, concert.comment]
                   .filter((a) => !!a)
-                  .join(', ')}
+                  .join(", ")}
               </div>
             </div>
           </div>

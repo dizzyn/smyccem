@@ -1,8 +1,8 @@
-import Concerts from 'app/components/concerts';
+import Concerts from "app/components/concerts";
 
 export const metadata = {
-  title: 'Koncerty',
-  description: 'Naše koncerty',
+  title: "Koncerty",
+  description: "Naše koncerty",
 };
 
 export default function Page() {

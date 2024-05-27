@@ -9,8 +9,8 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(
       new URL(
         "/hudba/" + slugify(decodeURIComponent(route.substring(7))),
-        req.url
-      )
+        req.url,
+      ),
     );
 
   // z vizitek

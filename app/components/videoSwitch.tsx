@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { PiX, PiYoutubeLogo } from 'react-icons/pi';
+import React, { useState } from "react";
+import { PiX, PiYoutubeLogo } from "react-icons/pi";
 
 export default function VideoSwitch({ videoID }: { videoID?: string }) {
   const [showVideo, setShowVideo] = useState(false);
@@ -25,7 +25,7 @@ export default function VideoSwitch({ videoID }: { videoID?: string }) {
             </button>
             <div className="max-w-5xl w-full rounded-lg relative aspect-video overflow-hidden">
               <iframe
-                src={'https://www.youtube.com/embed/' + videoID}
+                src={"https://www.youtube.com/embed/" + videoID}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen

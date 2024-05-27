@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export const metadata = {
-  title: 'O projektu',
-  description: 'O projektu Smyčcem',
+  title: "O projektu",
+  description: "O projektu Smyčcem",
 };
 
 export default function Page() {

@@ -12,7 +12,7 @@ export default async function sitemap() {
     (route) => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date().toISOString().split("T")[0],
-    })
+    }),
   );
 
   return [...routes, ...blogs];

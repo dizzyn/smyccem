@@ -1,10 +1,10 @@
-import React from 'react';
-import { PiEnvelope, PiGoogleDriveLogo, PiPhone } from 'react-icons/pi';
+import React from "react";
+import { PiEnvelope, PiGoogleDriveLogo, PiPhone } from "react-icons/pi";
 
 export const metadata = {
-  title: 'Kontakt',
+  title: "Kontakt",
   description:
-    'Kontaktujte nás ohledně koncertů, spolupráce nebo jiných dotazů.',
+    "Kontaktujte nás ohledně koncertů, spolupráce nebo jiných dotazů.",
 };
 
 export default function Page() {

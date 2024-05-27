@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Swiper as SwiperTypes } from 'swiper/types';
-import 'swiper/css';
-import { PiArrowLeft, PiArrowRight } from 'react-icons/pi';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperTypes } from "swiper/types";
+import "swiper/css";
+import { PiArrowLeft, PiArrowRight } from "react-icons/pi";
 
 export default function VideosCarousel({ data }: { data: any[] }) {
   const [swiper, setSwiper] = useState<null | SwiperTypes>(null);
@@ -55,7 +55,7 @@ export default function VideosCarousel({ data }: { data: any[] }) {
                   src={
                     (i === currentSlide &&
                       `https://www.youtube.com/embed/${item.metadata?.youtube}?si=plShCFYB2r81LBzc?vq=hd1080&modestbranding=0&rel=0`) ||
-                    ''
+                    ""
                   }
                   title="Trhni si smyčcem"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
