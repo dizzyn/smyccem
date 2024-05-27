@@ -16,7 +16,6 @@ export default function VideosCarousel({ data }: { data: any[] }) {
   const nextSlide = () => {
     swiper?.slideNext();
   };
-  console.log(data);
   return (
     <div className="max-w-2xl relative overflow-hidden">
       <div className="flex">
