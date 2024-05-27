@@ -14,7 +14,7 @@ function ConcertsStripWrap() {
 
 export default function Page() {
   return (
-    <div className="h-full flex items-center lg:items-end justify-end absolute inset-0 lg:relative">
+    <div className="h-full flex items-center lg:items-end justify-end relative">
       <ConcertsStripWrap />
     </div>
   );

@@ -44,7 +44,7 @@ export default function Background() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
-          className="w-full absolute h-full inset-0 scale-125"
+          className="w-full absolute h-full inset-0 -z-0 scale-125"
         />
       </div>
     </div>
