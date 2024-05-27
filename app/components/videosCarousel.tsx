@@ -20,22 +20,33 @@ export default function VideosCarousel({ data }: { data: any[] }) {
     setCurrentSlide(swiper?.realIndex || 0);
   };
 
+  const Btn = ({
+    onClick,
+    children,
+  }: {
+    onClick: () => void;
+    children: React.ReactNode;
+  }) => (
+    <button
+      onClick={onClick}
+      className="bg-white hover:bg-black text-black rounded hover:text-white cursor-pointer transition-all px-1 lg:px-2"
+    >
+      {children}
+    </button>
+  );
   return (
     <div className="max-w-2xl relative overflow-hidden">
-      <div className="flex">
-        <button
-          onClick={prevSlide}
-          className="bg-black/40 hover:bg-black text-white cursor-pointer rounded-l px-1 lg:px-3"
-        >
+      <div className="flex gap-1 border-4 border-white bg-white rounded-lg">
+        <Btn onClick={prevSlide}>
           <PiArrowLeft className="w-5 h-5" />
-        </button>
+        </Btn>
         <Swiper
           slidesPerView={1}
           loop
           onSwiper={(s: any) => {
             setSwiper(s);
           }}
-          className="rounded overflow-hidden aspect-video"
+          className="overflow-hidden aspect-video"
         >
           {data.map((item, i) => {
             return (
@@ -43,7 +54,7 @@ export default function VideosCarousel({ data }: { data: any[] }) {
                 <iframe
                   src={
                     (i === currentSlide &&
-                      `https://www.youtube.com/embed/${item.metadata?.youtube}?si=plShCFYB2r81LBzc?vq=hd1080&modestbranding=1&rel=0`) ||
+                      `https://www.youtube.com/embed/${item.metadata?.youtube}?si=plShCFYB2r81LBzc?vq=hd1080&modestbranding=0&rel=0`) ||
                     ''
                   }
                   title="Trhni si smyčcem"
@@ -56,12 +67,9 @@ export default function VideosCarousel({ data }: { data: any[] }) {
             );
           })}
         </Swiper>
-        <button
-          onClick={nextSlide}
-          className="bg-black/40 hover:bg-black text-white cursor-pointer rounded-r px-1 lg:px-3"
-        >
+        <Btn onClick={nextSlide}>
           <PiArrowRight className="w-5 h-5" />
-        </button>
+        </Btn>
       </div>
     </div>
   );
