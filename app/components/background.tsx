@@ -45,7 +45,7 @@ export default function Background() {
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
           className="w-full absolute h-full inset-0 scale-125"
-        ></iframe>
+        />
       </div>
     </div>
   ) : (

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
 export const metadata = {
-  title: "O projektu",
-  description: "O projektu Smyčcem",
+  title: 'O projektu',
+  description: 'O projektu Smyčcem',
 };
 
 export default function Page() {
   return (
     <section className="px-6 py-4">
-      <div className="text-xl lg:text-2xl font-medium text-white space-y-8 leading-9">
+      <div className="text-xl lg:text-2xl font-medium max-w-xl text-white space-y-8 leading-9">
         <p>
           Trhni si smyčcem je hudební skupina s vlastní tvorbou. Hrajeme pro
           různé příležitosti, spíše k poslechu než k tanci.
