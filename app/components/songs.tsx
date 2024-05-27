@@ -5,6 +5,7 @@ import VideosCarousel from './videosCarousel';
 export function Songs() {
   const allSongs = getSongs();
   const videos = allSongs.filter((a) => a.metadata?.youtube);
+
   return (
     <section className="py-2 px-6 space-y-8">
       <VideosCarousel data={videos} />
