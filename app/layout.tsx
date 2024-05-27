@@ -87,7 +87,7 @@ export default function RootLayout({
             id="wrapper"
           >
             <Navbar />
-            <div className="lg:py-16 overflow-auto print:overflow-visible">
+            <div className="lg:py-16 overflow-auto print:overflow-visible relative">
               {children}
             </div>
           </div>
