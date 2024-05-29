@@ -162,7 +162,7 @@ export default function Navbar() {
         </div>
         {pathName != "/" && (
           <button
-            className="lg:hidden z-20 bg-white py-2 px-3 font-bold cursor-pointer"
+            className="lg:hidden z-20 bg-white py-2 px-3 font-bold cursor-pointer text-black"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? "Zavřít" : "Menu"}

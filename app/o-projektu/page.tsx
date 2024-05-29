@@ -1,3 +1,4 @@
+import HeadingMobile from "app/components/typography";
 import React from "react";
 
 export const metadata = {
@@ -8,6 +9,7 @@ export const metadata = {
 export default function Page() {
   return (
     <section className="px-6 py-4">
+      <HeadingMobile>O projektu</HeadingMobile>
       <div className="text-xl lg:text-2xl font-medium max-w-xl text-white space-y-8 leading-9">
         <p>
           Trhni si smyčcem je hudební skupina s vlastní tvorbou. Hrajeme pro

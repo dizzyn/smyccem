@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
@@ -46,7 +46,7 @@ export default function Background() {
       <div
         className={classNames(
           "absolute inset-0 mix-blend-multiply -z-10 transition-colors duration-[2000ms] print:hidden",
-          backgrounds[id % backgrounds.length],
+          backgrounds[id % backgrounds.length]
         )}
       />
       <Image

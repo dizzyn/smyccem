@@ -44,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-      <html lang="cs" className="h-full bg-black">
+      <html lang="cs" className="h-full bg-black text-white">
         <link
           rel="apple-touch-icon"
           sizes="180x180"

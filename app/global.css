@@ -26,6 +26,7 @@
 }
 
 * {
+  /* @apply text-white; */
   @apply print:text-black;
 }
 

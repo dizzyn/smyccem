@@ -10,7 +10,7 @@ export function useChordSwitch() {
   return [
     () => (
       <button
-        className="flex gap-1 text-sm items-center cursor-pointer whitespace-nowrap"
+        className="flex gap-1 text-sm items-center cursor-pointer whitespace-nowrap text-black"
         onClick={() => setChords(!chords)}
       >
         <PiGuitar className="text-slate-500 w-7 h-7" />
