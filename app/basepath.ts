@@ -1,1 +1,1 @@
-export const baseUrl = "https://smyccem2.vercel.app";
+export const baseUrl = "https://www.smyccem.cz/";
