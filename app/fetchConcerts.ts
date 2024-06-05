@@ -7,12 +7,10 @@ export interface Concert {
   comment?: string;
 }
 
-const env = process.env.NODE_ENV;
-
 function fetchConcerts() {
   return fetch(
-    "https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/gviz/tq?gid=1460709352&cb=" +
-      (env == "development" ? new Date().getTime() : ""), // cache buster
+    "https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/gviz/tq?gid=1460709352",
+    { next: { revalidate: 30 } }
   ).then((a) =>
     a.text().then((s) => {
       const json = s.substring(47, s.length - 2);
@@ -33,7 +31,7 @@ function fetchConcerts() {
             comment: a[5],
           })) as Concert[]
       );
-    }),
+    })
   );
 }
 
