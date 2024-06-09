@@ -1,5 +1,12 @@
 import React from "react";
-import { PiEnvelope, PiGoogleDriveLogo, PiPhone } from "react-icons/pi";
+import {
+  PiEnvelope,
+  PiFacebookLogo,
+  PiGoogleDriveLogo,
+  PiInstagramLogo,
+  PiPhone,
+  PiYoutubeLogo,
+} from "react-icons/pi";
 
 export const metadata = {
   title: "Kontakt",
@@ -11,6 +18,45 @@ export default function Page() {
   return (
     <section className="px-6 py-4">
       <div className="text-white space-y-16 text-center lg:text-left">
+        <div className="space-y-3">
+          <h2 className="text-2xl lg:text-3xl font-bold uppercase">
+            Kde nás najdete
+          </h2>
+          <p className="flex items-center gap-2 text-lg lg:text-2xl justify-center lg:justify-start">
+            <span>
+              <PiYoutubeLogo className="w-6 h-6" />
+            </span>
+            <a
+              href="http://youtube.com/@smyccem"
+              className="hover:underline decoration-dotted underline-offset-4"
+            >
+              Youtube
+            </a>
+          </p>
+          <p className="flex items-center gap-2 text-lg lg:text-2xl justify-center lg:justify-start">
+            <span>
+              <PiFacebookLogo className="w-6 h-6" />
+            </span>
+            <a
+              href="http://facebook.com/smyccem"
+              className="hover:underline decoration-dotted underline-offset-4"
+            >
+              Facebook
+            </a>
+          </p>
+          <p className="flex items-center gap-2 text-lg lg:text-2xl justify-center lg:justify-start">
+            <span>
+              <PiInstagramLogo className="w-6 h-6" />
+            </span>
+            <a
+              href="http://instagram.com/smyccem"
+              className="hover:underline decoration-dotted underline-offset-4"
+            >
+              Instagram
+            </a>
+          </p>
+        </div>
+
         <div className="space-y-3">
           <h2 className="text-2xl lg:text-3xl font-bold uppercase">
             Booking &ndash; Alžběta Randusová
@@ -62,7 +108,7 @@ export default function Page() {
               href="https://drive.google.com/drive/u/0/folders/1OPhOa4qAp1tpiipcRtfV0gXinJRdj0f0"
               className="hover:underline decoration-dotted underline-offset-4"
             >
-              Technický rider
+              Technický rider, repertoárový list
             </a>
           </p>
         </div>
