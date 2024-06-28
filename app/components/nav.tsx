@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "next-view-transitions";
 import React, { ReactNode, useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import classNames from "classnames";
 import { PiFacebookLogo, PiInstagramLogo, PiYoutubeLogo } from "react-icons/pi";
 
@@ -87,16 +87,17 @@ const NavItems = ({ closeMenu }: { closeMenu: () => void }) => {
 };
 
 function SocialLinks() {
+  const cls = "w-7 h-7";
   return (
     <>
       <SocialMediaLink href="https://www.instagram.com/smyccem/">
-        <PiInstagramLogo className="w-7 h-7" />
+        <PiInstagramLogo className={cls} />
       </SocialMediaLink>
       <SocialMediaLink href="https://m.facebook.com/smyccem">
-        <PiFacebookLogo className="w-7 h-7" />
+        <PiFacebookLogo className={cls} />
       </SocialMediaLink>
       <SocialMediaLink href="http://youtube.com/@smyccem">
-        <PiYoutubeLogo className="w-7 h-7" />
+        <PiYoutubeLogo className={cls} />
       </SocialMediaLink>
     </>
   );
@@ -173,8 +174,9 @@ export default function Navbar() {
         className={classNames(
           "items-center lg:hidden justify-center",
           isMenuOpen || pathName == "/"
-            ? "z-10 flex flex-col gap-4 bg-black/20 absolute backdrop-blur-md left-0 right-0 bottom-0 top-0 "
-            : "hidden"
+            ? "z-10 flex flex-col gap-4 bg-black/20 absolute left-0 right-0 bottom-0 top-0 "
+            : "hidden", // na HP je menu hned otevřené
+          pathName != "/" && "backdrop-blur-md" // Na HP je vidět BG video
         )}
       >
         <NavItems closeMenu={() => setIsMenuOpen(false)} />

@@ -2,7 +2,7 @@ import { getSongs } from "app/hudba/utils";
 import { baseUrl } from "./basepath";
 
 export default async function sitemap() {
-  let blogs = getSongs().map((post) => ({
+  let songs = getSongs().map((post) => ({
     url: `${baseUrl}/hudba/${post.slug}`,
     youtube: post.metadata.youtube,
     info: post.metadata.info,
@@ -12,8 +12,8 @@ export default async function sitemap() {
     (route) => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date().toISOString().split("T")[0],
-    }),
+    })
   );
 
-  return [...routes, ...blogs];
+  return [...routes, ...songs];
 }
