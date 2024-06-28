@@ -97,7 +97,7 @@ export default function Page() {
               href="https://drive.google.com/drive/folders/1tMKG5XhCWe-H-izHxzDAe-r-WiDSWXwK"
               className="hover:underline decoration-dotted underline-offset-4"
             >
-              Press kit
+              Press kit, fotografie, anotace
             </a>
           </p>
           <p className="flex items-center gap-2 text-lg lg:text-2xl justify-center lg:justify-start">
