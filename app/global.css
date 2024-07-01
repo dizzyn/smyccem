@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 ::selection {
   background-color: #47a3f3;
@@ -81,4 +81,9 @@
   @media print {
     display: inline;
   }
+}
+
+html,
+body {
+  @apply h-full w-full overflow-hidden;
 }
