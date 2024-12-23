@@ -1,1 +1,2 @@
-export const baseUrl = "https://www.smyccem.cz/";
+export const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_PATH || "https://www.smyccem.cz/";

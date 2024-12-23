@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 ::selection {
   background-color: #47a3f3;
@@ -58,7 +58,8 @@
   }
 
   li {
-    @apply pb-2;
+    @apply pb-4;
+    @apply print:pb-2;
     &::marker {
       @apply text-gray-300 font-medium italic;
     }

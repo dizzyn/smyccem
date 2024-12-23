@@ -1,20 +1,19 @@
 "use client";
+import classNames from "classnames";
 import { useState } from "react";
-import { PiGuitar } from "react-icons/pi";
-
-const lsKey = "chords";
+import { PiPianoKeysFill } from "react-icons/pi";
 
 export function useChordSwitch() {
   const [chords, setChords] = useState<boolean>();
 
   return [
-    () => (
+    ({ btnClassNames }: { btnClassNames?: string }) => (
       <button
-        className="flex gap-1 text-sm items-center cursor-pointer whitespace-nowrap text-black"
+        className={classNames(btnClassNames)}
         onClick={() => setChords(!chords)}
       >
-        <PiGuitar className="text-slate-500 w-7 h-7" />
-        {chords ? "Skrýt akordy" : "Zobrazit akordy"}
+        <PiPianoKeysFill />
+        {chords ? "Akordy" : "Akordy"}
       </button>
     ),
     chords ? "showChords" : "",

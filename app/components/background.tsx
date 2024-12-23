@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React, { useMemo } from 'react';
-import Image from 'next/image';
-import classNames from 'classnames';
-import { usePathname } from 'next/navigation';
+import React, { useMemo } from "react";
+import Image from "next/image";
+import classNames from "classnames";
+import { usePathname } from "next/navigation";
 
 const backgrounds = [
-  'bg-slate-500',
-  'bg-rose-500',
-  'bg-red-700',
-  'bg-amber-700',
-  'bg-violet-700',
-  'bg-slate-600',
-  'bg-green-700',
-  'bg-indigo-700',
+  "bg-slate-500",
+  "bg-rose-500",
+  "bg-red-700",
+  "bg-amber-700",
+  "bg-violet-700",
+  "bg-slate-600",
+  "bg-green-700",
+  "bg-indigo-700",
 ];
 
 export default function Background() {
@@ -29,9 +29,7 @@ export default function Background() {
     return arr[Math.floor(Math.random() * arr.length) || 0].id;
   }, [path]);
 
-  const videoStart = 70;
-
-  return path == '/' ? (
+  return path == "/" ? (
     <video
       autoPlay
       muted
@@ -45,12 +43,12 @@ export default function Background() {
     <div className="absolute inset-0 overflow-hidden">
       <div
         className={classNames(
-          'absolute inset-0 overflow-hidden mix-blend-multiply -z-10 transition-colors duration-[2000ms] print:hidden',
+          "absolute inset-0 overflow-hidden mix-blend-multiply -z-10 transition-colors duration-[2000ms] print:hidden",
           backgrounds[id % backgrounds.length]
         )}
       />
       <Image
-        src={'/images/' + id + '.jpeg'}
+        src={"/images/" + id + ".jpeg"}
         alt="Trhni si smyčcem"
         fill
         className="-z-20 print:hidden opacity-90 object-cover scale-125 grayscale contrast-125 brightness-110"

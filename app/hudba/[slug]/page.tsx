@@ -2,7 +2,9 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { getSongs } from "app/hudba/utils";
 import { baseUrl } from "app/basepath";
+import { generateThumbUrl } from "../utils-cli";
 import Song from "app/components/song";
+import { Suspense } from "react";
 
 export async function generateStaticParams() {
   let songs = getSongs();
@@ -15,18 +17,14 @@ export async function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   let song = getSongs().find((songs) => songs.slug === params.slug);
   if (!song) {
-    return;
+    return {};
   }
 
-  let { title, youtube, info, thumbnail } = song.metadata;
-  let ogImage = thumbnail
-    ? thumbnail
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  let { title } = song.metadata;
+  let ogImage = generateThumbUrl(song);
 
   return {
     title,
-    youtube,
-    info,
     openGraph: {
       title,
       type: "article",
@@ -80,9 +78,7 @@ export default function SongPage({ params }: { params: { slug: string } }) {
             description:
               "Píseň skupiny Trhni si smyčcem, text, akordy" +
               (song.metadata.youtube ? " a video " : ""),
-            image: song.metadata.thumbnail
-              ? `${baseUrl}${song.metadata.thumbnail}`
-              : `/og?title=${encodeURIComponent(song.metadata.title)}`,
+            image: generateThumbUrl(song),
             url: `${baseUrl}/hudba/${song.slug}`,
             author: {
               "@type": "Band",
@@ -91,9 +87,11 @@ export default function SongPage({ params }: { params: { slug: string } }) {
           }),
         }}
       />
-      <Song {...song.metadata}>
-        <CustomMDX source={song.content} />
-      </Song>
+      <Suspense fallback={<>...</>}>
+        <Song song={song}>
+          <CustomMDX source={song.content} />
+        </Song>
+      </Suspense>
     </section>
   );
 }

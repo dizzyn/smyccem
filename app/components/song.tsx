@@ -5,45 +5,51 @@ import { useChordSwitch } from "./chordsSwitch";
 import classNames from "classnames";
 import { ReactNode } from "react";
 import { Link } from "next-view-transitions";
+import { Song as SongType } from "app/hudba/[slug]/page";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
-function Song({
-  children,
-  youtube,
-  title,
-  info,
-}: {
-  children: ReactNode;
-  title: string;
-  info?: string;
-  youtube?: string;
-  thumbnail?: string;
-}) {
+function Song({ children, song }: { song: SongType; children: ReactNode }) {
   const [ChordsSwitch, chordsCls] = useChordSwitch();
-  return (
-    <div className="space-y-8">
-      <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-y-1 px-6 py-3 uppercase bg-white">
-        <h1 className="font-bold text-xl print:text-left print:justify-start print:text-4xl lg:text-3xl text-black flex items-center justify-center lg:justify-start w-full text-center gap-1.5 lg:gap-2 relative">
-          <Link
-            href="/hudba"
-            className="absolute print:hidden left-0 top-1/2 lg:relative hover:-left-2 transition-all"
-          >
-            <PiArrowLeftBold className="w-8 h-8 lg:w-10 lg:h-10 text-black" />
-          </Link>
-          {title}
-        </h1>
-        <div className="flex print:hidden items-center gap-4">
-          <ChordsSwitch />
-          <VideoSwitch videoID={youtube} />
-        </div>
-      </div>
+  const clsBtn =
+    " text-lg sm:text-xl [&>svg]:text-2xl sm:[&>svg]:text-3xl text-white flex gap-1 items-center cursor-pointer whitespace-nowrap relative hover:top-[2px] transition-all ";
 
-      {info && (
-        <div className="px-6">
-          <p className="text-white font-medium uppercase">{info}</p>
+  const params = useSearchParams();
+
+  return (
+    <div className="space-y-2 lg:ml-2">
+      <div className="flex flex-col lg:flex-row pl-3 uppercase bg-white items-center">
+        <h1 className="text-3xl text-black">{song.metadata.title}</h1>
+      </div>
+      <div className="flex flex-row px-3 lg:pl-0 gap-5 print:hidden">
+        <Link
+          href="/hudba"
+          className={classNames(
+            clsBtn,
+            "left-0 hover:-left-[4px] hover:!top-0"
+          )}
+        >
+          <PiArrowLeftBold />
+        </Link>
+
+        <ChordsSwitch btnClassNames={clsBtn + " ml-auto"} />
+        {song.metadata.youtube && (
+          <VideoSwitch
+            song={song}
+            btnClassNames={clsBtn}
+            style="button"
+            autoplay={params.has("play")}
+          />
+        )}
+      </div>
+      {song.metadata.info && (
+        <div className="py-3 px-3 lg:pl-0 ">
+          <p className="text-white font-medium uppercase">
+            {song.metadata.info}
+          </p>
         </div>
       )}
 
-      <article className={classNames("songLyrics px-6", chordsCls)}>
+      <article className={classNames("songLyrics px-6 lg:pl-0", chordsCls)}>
         {children}
       </article>
     </div>
