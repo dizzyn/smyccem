@@ -6,6 +6,10 @@ import { generateThumbUrl } from "../utils-cli";
 import Song from "app/components/song";
 import { Suspense } from "react";
 
+interface Params {
+  params: Promise<{ slug: string }>;
+}
+
 export async function generateStaticParams() {
   let songs = getSongs();
 
@@ -14,8 +18,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  let song = getSongs().find((songs) => songs.slug === params.slug);
+export async function generateMetadata({ params }: Params) {
+  const slug = (await params).slug;
+  let song = getSongs().find((post) => post.slug === slug);
   if (!song) {
     return {};
   }
@@ -56,8 +61,9 @@ export interface Song {
   content: string;
 }
 
-export default function SongPage({ params }: { params: { slug: string } }) {
-  let song = getSongs().find((post) => post.slug === params.slug);
+export default async function SongPage({ params }: Params) {
+  const slug = (await params).slug;
+  let song = getSongs().find((post) => post.slug === slug);
 
   if (!song) {
     notFound();
