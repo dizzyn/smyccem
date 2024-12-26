@@ -77,8 +77,6 @@ export async function startSubscription(
     react: EmailTemplateSubscribe({ token }),
   });
 
-  console.log("Konec", data);
-
   if (error) {
     console.error(error);
     throw "Chyba: nepodařilo založit adresu, napište nám prosím na blazej@smyccem.cz.";
