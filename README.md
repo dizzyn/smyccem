@@ -1,10 +1,11 @@
 ## Nový web Smyčcem.cz
 
-# Používá pokusně pnpm
+- Vykáme ve smyslu "vy všichni"
 
+# Používá `pnpm`
 - Install pnpm `brew install pnpm`
 - Install packages `pnpm i`
 - Add package `pnpm add the-package`
 
-# seed
+# Odvozeno od:
 - https://github.com/vercel/examples/tree/main/solutions/blog

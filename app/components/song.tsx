@@ -4,9 +4,9 @@ import VideoSwitch from "./videoSwitch";
 import { useChordSwitch } from "./chordsSwitch";
 import classNames from "classnames";
 import { ReactNode } from "react";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { Song as SongType } from "app/hudba/[slug]/page";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 function Song({ children, song }: { song: SongType; children: ReactNode }) {
   const [ChordsSwitch, chordsCls] = useChordSwitch();

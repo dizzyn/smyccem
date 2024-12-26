@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import React, { ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
@@ -17,6 +17,10 @@ const navItems = [
   {
     label: "O projektu",
     slug: "o-projektu",
+  },
+  {
+    label: "Novinky",
+    slug: "novinky",
   },
   {
     label: "Kontakt",

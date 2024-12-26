@@ -1,18 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperTypes } from "swiper/types";
-import "swiper/css";
-import { GrMoreVertical } from "react-icons/gr";
-import { Link } from "next-view-transitions";
-import { Metadata, Song } from "app/hudba/[slug]/page";
+import { Song } from "app/hudba/[slug]/page";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import classNames from "classnames";
-import { generateThumbUrl } from "app/hudba/utils-cli";
-import { GoVideo } from "react-icons/go";
-import { FaPlay } from "react-icons/fa";
-import { BsPlayBtnFill } from "react-icons/bs";
 import VideoSwitch from "./videoSwitch";
 
 const toLines = (songs: Song[], perLine: number) =>
