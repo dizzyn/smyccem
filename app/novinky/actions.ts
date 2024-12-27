@@ -53,10 +53,10 @@ export async function startSubscription(
   formData: FormData
 ) {
   const schema = z.object({
-    adresa: z.string().email(),
+    email: z.string().email(),
   });
   const parse = schema.safeParse({
-    adresa: formData.get("adresa"),
+    email: formData.get("email"),
   });
 
   if (!parse.success) {
@@ -66,13 +66,13 @@ export async function startSubscription(
     };
   }
 
-  const { adresa } = parse.data;
+  const { email } = parse.data;
 
-  const token = jwt.sign(adresa, String(process.env.JWT_SECRET));
+  const token = jwt.sign(email, String(process.env.JWT_SECRET));
 
   const { data, error } = await resend.emails.send({
     from: "Jednorožec Blažej <blazej@smyccem.cz>",
-    to: [adresa],
+    to: [email],
     subject: "Trhni si smyčcem – Přihlášení k odběru novinek ",
     react: EmailTemplateSubscribe({ token }),
   });

@@ -35,12 +35,12 @@ export default function AddForm() {
           <h3 className="text-1xl lg:text-2xl font-bold ">
             Přihlašte se k odběru novinek e-mailem
           </h3>
-          <label htmlFor="adresa">Napište svou adresu</label>
+          <label htmlFor="email">Napište svou adresu</label>
           <div className="flex flex-col gap-2 md:flex-row mt-2 group">
             <input
-              type="text"
-              id="adresa"
-              name="adresa"
+              type="email"
+              id="email"
+              name="email"
               required
               placeholder="@"
               className="h-10 active:ring-0 focus:outline-0 bg-transparent! pl-2 grow border-white/90 border-2"
