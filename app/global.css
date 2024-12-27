@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.link {
+  @apply hover:underline decoration-dotted underline-offset-4;
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
