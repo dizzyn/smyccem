@@ -15,8 +15,8 @@ const navItems = [
     slug: "koncerty",
   },
   {
-    label: "O projektu",
-    slug: "o-projektu",
+    label: "O kapele",
+    slug: "o-kapele",
   },
   {
     label: "Novinky",

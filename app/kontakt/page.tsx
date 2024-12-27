@@ -17,6 +17,7 @@ export const metadata = {
 export default function Page() {
   const clsLine =
     "flex items-center gap-2 text-lg lg:text-2xl justify-center lg:justify-start [&>svg]:text-2xl";
+
   return (
     <section className="px-6 py-4">
       <div className="text-white space-y-16 text-center lg:text-left">
