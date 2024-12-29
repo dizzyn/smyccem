@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { GeistSans } from "geist/font/sans";
 import Navbar from "./components/nav";
 import Background from "./components/background";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -76,6 +77,7 @@ export default function RootLayout({
           "h-full overflow-hidden print:overflow-visible"
         )}
       >
+        <SpeedInsights />
         <Background />
         <div
           className="overflow-auto lg:overflow-hidden print:overflow-visible h-full lg:grid lg:grid-cols-[0.8fr_1.2fr]"
