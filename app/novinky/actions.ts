@@ -4,34 +4,39 @@ import { EmailTemplateSubscribe } from "../components/EmailTemplateSubscribe";
 import { Resend } from "resend";
 import { z } from "zod";
 import jwt from "jsonwebtoken";
+import { baseUrl } from "app/basepath";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Konec přihlašování newsletteru, zapsání do databáze
+function validateEmail(emailInout: string) {
+  const schema = z.object({
+    email: z.string().email(),
+  });
+  const parse = schema.safeParse({
+    email: emailInout,
+  });
+  return { ...parse, ...parse.data };
+}
+
+// Dokonceni prihlasovani novinek – zapsani do databaze
 export async function confirmSubscription(token: string) {
-  let email;
+  let inputEmail;
 
   try {
-    email = String(jwt.verify(token, String(process.env.JWT_SECRET)));
+    inputEmail = String(jwt.verify(token, String(process.env.JWT_SECRET)));
   } catch (e) {
     console.error(e);
     return ["Chyba: neplatný odkaz, napište nám prosím na blazej@smyccem.cz"];
   }
 
-  const schema = z.object({
-    email: z.string().email(),
-  });
-  const parse = schema.safeParse({
-    email,
-  });
+  const { email } = validateEmail(inputEmail);
 
-  if (!parse.success) {
-    console.error(parse.error);
-    return [
-      "Chyba v aplikaci, neplatný email, napište nám prosím na blazej@smyccem.cz",
-    ];
+  if (!email) {
+    return {
+      message:
+        "Chyba aplikace: Nevalidní emailová adresa, napište nám prosím na blazej@smyccem.cz",
+    };
   }
-
   const { error } = await resend.contacts.create({
     email,
     audienceId: String(process.env.RESEND_AUDIENCE),
@@ -45,36 +50,33 @@ export async function confirmSubscription(token: string) {
   return ["Úspěšné přihlášení", email];
 }
 
-// Začátek přihlašování k newsletteru, odeslání emailu
+// Zacatek prihlasovani novinek – odeslani emailu
 export async function startSubscription(
   _: {
     message: string;
   },
   formData: FormData
 ) {
-  const schema = z.object({
-    email: z.string().email(),
-  });
-  const parse = schema.safeParse({
-    email: formData.get("email"),
-  });
+  const { email } = validateEmail(String(formData.get("email")));
 
-  if (!parse.success) {
+  if (!email) {
     return {
       message:
         "Chyba aplikace: Nevalidní emailová adresa, napište nám prosím na blazej@smyccem.cz",
     };
   }
 
-  const { email } = parse.data;
-
   const token = jwt.sign(email, String(process.env.JWT_SECRET));
 
-  const { data, error } = await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "Jednorožec Blažej <blazej@smyccem.cz>",
     to: [email],
     subject: "Trhni si smyčcem – Přihlášení k odběru novinek ",
     react: EmailTemplateSubscribe({ token }),
+    headers: {
+      "List-Unsubscribe": `<${baseUrl + "unsubscribe/" + token}>`,
+      "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+    },
   });
 
   if (error) {
@@ -86,4 +88,30 @@ export async function startSubscription(
     message:
       "Odesláno, zkontrolujte si emailovou schránku, měl by vám dorazit žádostí o potvrzení",
   };
+}
+
+// Odhlaseni novinek
+export async function unsubscribe(token: string) {
+  let email;
+
+  try {
+    email = String(jwt.verify(token, String(process.env.JWT_SECRET)));
+  } catch (e) {
+    console.error(e);
+    return [
+      "Chyba aplikace: neplatný odkaz, napište nám prosím na blazej@smyccem.cz",
+    ];
+  }
+
+  const { error } = await resend.contacts.remove({
+    email,
+    audienceId: String(process.env.RESEND_AUDIENCE),
+  });
+
+  if (error) {
+    console.error(error);
+    return ["Chyba na straně serveru, napište nám prosím na blazej@smyccem.cz"];
+  }
+
+  return ["Úspěšné odhlášení", email];
 }
