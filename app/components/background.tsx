@@ -1,33 +1,36 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
+import { backgrounds } from "backgrounds";
 
-const backgrounds = [
-  "bg-slate-500",
-  "bg-rose-500",
-  "bg-red-700",
-  "bg-amber-700",
-  "bg-violet-700",
-  "bg-slate-600",
-  "bg-green-700",
-  "bg-indigo-700",
-];
-
-export default function Background() {
+export default function Background({
+  SSRrandomBgId,
+}: {
+  SSRrandomBgId: number;
+}) {
   const path = usePathname();
 
-  let id: number;
+  const [id, setId] = useState<number>();
 
-  id = useMemo(() => {
-    const arr = backgrounds
-      .map((color, id) => ({ color, id }))
-      .filter((a) => a.id !== id);
+  useEffect(() => {
+    // Rehydration
+    if (id == undefined) {
+      setId(SSRrandomBgId);
+    } else {
+      // Client side rendering
+      const arr = backgrounds
+        .map((color, id) => ({ color, id }))
+        .filter((a) => a.id !== id);
 
-    return arr[Math.floor(Math.random() * arr.length) || 0].id;
+      setId(arr[Math.floor(Math.random() * arr.length) || 0].id);
+    }
   }, [path]);
+
+  // Server side rendering
+  const bgId = id || SSRrandomBgId;
 
   return path == "/" ? (
     <video
@@ -44,11 +47,11 @@ export default function Background() {
       <div
         className={classNames(
           "absolute inset-0 overflow-hidden mix-blend-multiply -z-10 transition-colors duration-[2000ms] print:hidden",
-          backgrounds[id % backgrounds.length]
+          backgrounds[bgId % backgrounds.length]
         )}
       />
       <Image
-        src={"/images/" + id + ".jpeg"}
+        src={"/images/" + bgId + ".jpeg"}
         alt="Trhni si smyčcem"
         fill
         className="-z-20 print:hidden opacity-90 object-cover scale-125 grayscale contrast-125 brightness-110"

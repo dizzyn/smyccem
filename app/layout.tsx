@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import Navbar from "./components/nav";
 import Background from "./components/background";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { backgrounds } from "backgrounds";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -37,11 +38,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // nahodne BG id ze server renderingu
+  const randomBgId = Math.floor(Math.random() * backgrounds.length);
   return (
     <html lang="cs" className="h-full bg-black text-white overflow-hidden">
       <link
@@ -78,7 +81,7 @@ export default function RootLayout({
         )}
       >
         <SpeedInsights />
-        <Background />
+        <Background SSRrandomBgId={randomBgId} />
         <div
           className="overflow-auto lg:overflow-hidden print:overflow-visible h-full lg:grid lg:grid-cols-[0.8fr_1.2fr]"
           id="wrapper"
