@@ -50,8 +50,6 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  console.log("UNSUBSCRIBE POST");
-
   const [message, email] = await unsubscribe(getToken(request));
 
   if (!email) {

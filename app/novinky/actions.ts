@@ -75,6 +75,7 @@ export async function startSubscription(
     headers: {
       "List-Unsubscribe": `<${baseUrl + "unsubscribe/" + token}>`,
       "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      // Precedence: "bulk",
     },
   });
 

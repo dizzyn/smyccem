@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "pnpm exec prettier . --write"
+    "format": "pnpm exec prettier . --write",
+    "lint": "pnpm eslint"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-beta.8",
