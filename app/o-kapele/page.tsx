@@ -1,12 +1,6 @@
 import HeadingMobile from "app/components/typography";
-import Link from "next/link";
 import React from "react";
-import {
-  PiFacebookLogo,
-  PiGoogleDriveLogo,
-  PiInstagramLogo,
-  PiYoutubeLogo,
-} from "react-icons/pi";
+import { PiGoogleDriveLogo } from "react-icons/pi";
 
 export const metadata = {
   title: "O projektu",
