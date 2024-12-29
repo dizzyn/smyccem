@@ -32,10 +32,9 @@ export async function confirmSubscription(token: string) {
   const { email } = validateEmail(inputEmail);
 
   if (!email) {
-    return {
-      message:
-        "Chyba aplikace: Nevalidní emailová adresa, napište nám prosím na blazej@smyccem.cz",
-    };
+    return [
+      "Chyba aplikace: Nevalidní emailová adresa, napište nám prosím na blazej@smyccem.cz",
+    ];
   }
   const { error } = await resend.contacts.create({
     email,
