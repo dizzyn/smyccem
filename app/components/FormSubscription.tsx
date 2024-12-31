@@ -7,7 +7,11 @@ import { z } from "zod";
 import classNames from "classnames";
 
 export default function AddForm() {
-  const [state, formAction, pending] = useActionState(startSubscription, {
+  const [subscribeDirectly, setDirect] = useState(false);
+  const [state, submitAction, pending] = useActionState<
+    { message: string },
+    FormData
+  >(async (_, formdata) => startSubscription(formdata, subscribeDirectly), {
     message: "",
   });
 
@@ -22,9 +26,15 @@ export default function AddForm() {
     return success;
   }, [email]);
 
+  // Trik jak zapsat lidi primo, bez potvrzeni
+  const bind = {
+    onClick: () => setDirect(!subscribeDirectly),
+    onTouchStart: () => setDirect(!subscribeDirectly),
+  };
+
   return (
     <form
-      action={formAction}
+      action={submitAction}
       className={classNames(
         "border-white/90 border-2 p-4 pt-2 bg-black/50 max-w-max w-full mx-auto lg:mx-0"
       )}
@@ -32,7 +42,13 @@ export default function AddForm() {
       {!state?.message && (
         <>
           <h3 className="text-1xl lg:text-2xl font-bold ">
-            Přihlašte se k odběru novinek
+            {subscribeDirectly ? (
+              "Zapsat do listu bez potvrzení"
+            ) : (
+              <>
+                Přihlašte se k <span {...bind}>odběru</span> novinek
+              </>
+            )}
           </h3>
           <label htmlFor="email">Napište svůj e-mail</label>
           <div className="flex flex-col gap-2 md:flex-row mt-2 group">
@@ -50,7 +66,13 @@ export default function AddForm() {
               disabled={pending || !valid}
               className="flex flex-row bg-white/90 hover:underline items-center px-2 text-black cursor-pointer disabled:hover:no-underline disabled:text-gray-400"
             >
-              <div className="grow">{pending ? "Odesílání" : "Odeslat"}</div>
+              <div className="grow">
+                {pending
+                  ? "Odesílání"
+                  : subscribeDirectly
+                    ? "Zapsat"
+                    : "Odeslat"}
+              </div>
               <Image
                 src="/unicorn-l.png"
                 alt=""

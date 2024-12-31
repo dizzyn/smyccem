@@ -50,12 +50,10 @@ export async function confirmSubscription(token: string) {
 }
 
 // Zacatek prihlasovani novinek – odeslani emailu
-export async function startSubscription(
-  _: {
-    message: string;
-  },
-  formData: FormData
-) {
+export const startSubscription = async (
+  formData: FormData,
+  subscribeDirectly: boolean
+) => {
   const { email } = validateEmail(String(formData.get("email")));
 
   if (!email) {
@@ -71,7 +69,7 @@ export async function startSubscription(
     from: "Jednorožec Blažej <blazej@smyccem.cz>",
     to: [email],
     subject: "Trhni si smyčcem – Přihlášení k odběru novinek ",
-    react: EmailTemplateSubscribe({ token }),
+    react: EmailTemplateSubscribe({ token, subscribeDirectly }),
     headers: {
       "List-Unsubscribe": `<${baseUrl + "unsubscribe/" + token}>`,
       "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
@@ -84,11 +82,16 @@ export async function startSubscription(
     throw "Chyba: nepodařilo založit adresu, napište nám prosím na blazej@smyccem.cz.";
   }
 
+  if (subscribeDirectly) {
+    const [message, email] = await confirmSubscription(token);
+    return { message };
+  }
+
   return {
     message:
       "Odesláno, zkontrolujte si emailovou schránku, měl by vám dorazit žádostí o potvrzení",
   };
-}
+};
 
 // Odhlaseni novinek
 export async function unsubscribe(token: string) {

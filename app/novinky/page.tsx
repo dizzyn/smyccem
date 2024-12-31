@@ -19,11 +19,10 @@ export const metadata = {
 };
 
 export default function Page() {
-  const classTitleBasic = "text-2xl lg:text-3xl font-bold ";
   return (
     <section className="px-6 py-4">
       <div className="text-white space-y-16 text-center lg:text-left">
-        <div className="space-y-3 w-[400px]">
+        <div className="space-y-3 w-[400px] max-w-full">
           <img src="/zpravodaj.svg" />
           <FormSubscription />
 
