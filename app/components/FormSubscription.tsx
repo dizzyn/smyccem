@@ -1,7 +1,6 @@
 "use client";
 
 import { useActionState, useMemo, useState } from "react";
-import { useFormStatus } from "react-dom";
 import { startSubscription } from "../novinky/actions";
 import Image from "next/image";
 import { z } from "zod";
@@ -33,9 +32,9 @@ export default function AddForm() {
       {!state?.message && (
         <>
           <h3 className="text-1xl lg:text-2xl font-bold ">
-            Přihlašte se k odběru novinek e-mailem
+            Přihlašte se k odběru novinek
           </h3>
-          <label htmlFor="email">Napište svou adresu</label>
+          <label htmlFor="email">Napište svůj e-mail</label>
           <div className="flex flex-col gap-2 md:flex-row mt-2 group">
             <input
               type="email"
@@ -57,7 +56,7 @@ export default function AddForm() {
                 alt=""
                 width={40}
                 height={40}
-                className="hover:transform-3d group-hover:animate-[swing_1s_infinite] flex-none"
+                className="hover:transform-3d group-hover:animate-[swing_1s_infinite] group-focus-within:animate-[swing_1s_infinite] flex-none"
               />
             </button>
           </div>
