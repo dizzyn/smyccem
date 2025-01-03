@@ -48,31 +48,19 @@ export default async function RootLayout({
   return (
     <html lang="cs" className="h-full bg-black text-white overflow-hidden">
       <link
+        rel="icon"
+        type="image/png"
+        href="/favicon/favicon-96x96.png"
+        sizes="96x96"
+      />
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+      <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/favicon/apple-touch-icon.png"
       />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon/favicon-16x16.png"
-      />
       <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#ffffff" />
       <body
         className={classNames(
