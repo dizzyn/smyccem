@@ -21,6 +21,7 @@ const navItems = [
   {
     label: "Novinky",
     slug: "novinky",
+    animated: true,
   },
   {
     label: "Kontakt",
@@ -48,10 +49,12 @@ const SocialMediaLink = ({
 const Item = ({
   label,
   slug,
+  animated,
   closeMenu,
 }: {
   label: string;
   slug: string;
+  animated?: boolean;
   closeMenu: () => void;
 }) => {
   const pathname = usePathname();
@@ -60,7 +63,14 @@ const Item = ({
       <Link
         href={`/${slug}`}
         onClick={closeMenu}
-        className="group flex items-center justify-center lg:block lg:pr-8 text-white uppercase font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap "
+        className={classNames([
+          "group flex items-center justify-center lg:block lg:pr-8  uppercase font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap",
+          {
+            "text-white": !animated,
+            "animate-[text_5s_ease_infinite] bg-gradient-to-r from-white via-purple-500 to-teal-500 bg-clip-text text-transparent":
+              animated,
+          },
+        ])}
       >
         <span
           className={classNames(
@@ -81,6 +91,7 @@ const NavItems = ({ closeMenu }: { closeMenu: () => void }) => {
       {navItems.map((item) => (
         <Item
           key={item.slug}
+          animated={item.animated}
           label={item.label}
           slug={item.slug}
           closeMenu={closeMenu}

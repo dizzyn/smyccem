@@ -60,7 +60,7 @@ export default function Videos({ allSongs }: { allSongs: Song[] }) {
   const [expanded, setExpanded] = useState(false);
 
   const clsBtn =
-    " text-lg sm:text-xl [&>svg]:text-2xl sm:[&>svg]:text-3xl text-white flex gap-1 items-center cursor-pointer whitespace-nowrap relative hover:top-[2px] transition-all ";
+    "text-lg sm:text-xl [&>svg]:text-2xl sm:[&>svg]:text-3xl text-white flex gap-1 items-center cursor-pointer whitespace-nowrap relative hover:top-[2px] transition-all ";
 
   return (
     <div className="pb-4">
