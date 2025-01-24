@@ -53,7 +53,7 @@ export const EmailTemplateSubscribe: React.FC<Readonly<EmailTemplateProps>> = ({
     )}
 
     <Box>
-      Zasílám zhruba jednou měsíčně krátký přehled. Dozvíš se kde{" "}
+      Zasílám zhruba jednou měsíčně krátký přehled. Dozvíš se, kde{" "}
       <em>Trhni si smyčcem</em> hrají 🎸, co je nového a občas pustím i nějakou
       drobnost, ke které se nikdo mimo můj zpravodaj nedostane ☕️.
     </Box>
