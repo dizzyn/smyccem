@@ -5,6 +5,7 @@ import { Resend } from "resend";
 import { z } from "zod";
 import jwt from "jsonwebtoken";
 import { baseUrl } from "app/basepath";
+import { v4 as uuid } from "uuid";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -73,6 +74,7 @@ export const startSubscription = async (
     headers: {
       "List-Unsubscribe": `<${baseUrl + "unsubscribe/" + token}>`,
       "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      "X-Entity-Ref-ID": uuid(),
       // Precedence: "bulk",
     },
   });
@@ -89,7 +91,7 @@ export const startSubscription = async (
 
   return {
     message:
-      "Odesláno, zkontrolujte si emailovou schránku, měl by vám dorazit žádostí o potvrzení",
+      "Odesláno, zkontrolujte si emailovou schránku a potvrďte svou adresu.",
   };
 };
 
