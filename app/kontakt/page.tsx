@@ -27,19 +27,31 @@ export default function Page() {
           </h2>
           <div className={clsLine}>
             <PiYoutubeLogo />
-            <a href="http://youtube.com/@smyccem" className="link">
+            <a
+              href="http://youtube.com/@smyccem"
+              className="link"
+              target="_blank"
+            >
               Youtube
             </a>
           </div>
           <div className={clsLine}>
             <PiFacebookLogo />
-            <a href="http://facebook.com/smyccem" className="link">
+            <a
+              href="http://facebook.com/smyccem"
+              className="link"
+              target="_blank"
+            >
               Facebook
             </a>
           </div>
           <div className={clsLine}>
             <PiInstagramLogo />
-            <a href="http://instagram.com/smyccem" className="link">
+            <a
+              href="http://instagram.com/smyccem"
+              className="link"
+              target="_blank"
+            >
               Instagram
             </a>
           </div>
@@ -73,6 +85,7 @@ export default function Page() {
             <a
               href="https://drive.google.com/drive/folders/1tMKG5XhCWe-H-izHxzDAe-r-WiDSWXwK"
               className="link"
+              target="_blank"
             >
               Press kit, fotografie, anotace
             </a>
@@ -84,6 +97,7 @@ export default function Page() {
             <a
               href="https://drive.google.com/drive/u/0/folders/1OPhOa4qAp1tpiipcRtfV0gXinJRdj0f0"
               className="link"
+              target="_blank"
             >
               Technický rider, repertoárový list
             </a>
