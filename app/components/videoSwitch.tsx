@@ -2,7 +2,6 @@
 
 import { Song } from "app/hudba/[slug]/page";
 import { generateThumbUrl } from "app/hudba/utils-cli";
-import Link from "next/link";
 import React, { useState } from "react";
 import { BsPlayBtnFill } from "react-icons/bs";
 import { PiX, PiYoutubeLogo } from "react-icons/pi";

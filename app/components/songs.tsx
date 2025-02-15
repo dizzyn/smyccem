@@ -1,14 +1,25 @@
 import Link from "next/link";
 import { getSongs } from "app/hudba/utils";
 import Videos from "./Videos";
+import { PiYoutubeLogo } from "react-icons/pi";
 
 export function Songs() {
   const allSongs = getSongs();
-  const titleCls = "font-bold text-3xl uppercase mt-4 mb-2";
+  const titleCls = "font-bold text-3xl uppercase my-4";
 
   return (
     <section className="py-2 px-6">
-      <h2 className={titleCls}>Nahrávky</h2>
+      <div className="flex">
+        <h2 className={titleCls}>Nahrávky</h2>
+        <a
+          href="https://www.youtube.com/@smyccem"
+          target="_blank"
+          className="hidden sm:flex flex-row items-center ml-auto hover:translate-x-1 transition-all"
+        >
+          <span>Náš Youtube kanál</span>
+          <PiYoutubeLogo className="w-8 h-8 md:w-10 md:h-10 ml-1" />
+        </a>
+      </div>
       <Videos allSongs={allSongs} />
       <h2 className={titleCls}>Texty s akordy</h2>
       <ul className="space-y-1 lg:space-y-2">
