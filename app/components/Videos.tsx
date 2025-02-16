@@ -5,23 +5,32 @@ import { Song } from "app/hudba/[slug]/page";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import classNames from "classnames";
 import VideoSwitch from "./videoSwitch";
+import { PiYoutubeLogo } from "react-icons/pi";
+import { BsPlayBtnFill } from "react-icons/bs";
 
-const toLines = (songs: Song[], perLine: number) =>
-  songs
+interface Advert {
+  slug: "advert";
+}
+
+const toLines = (songs: Song[], perLine: number) => {
+  const _s = songs
     .filter((a) => a.metadata.youtube)
     .sort((a, b) => {
       if (a.metadata.title > b.metadata.title) {
         return 1;
       }
       return -1;
-    })
-    .reduce(
-      (acc, song) =>
-        acc[acc.length - 1].length < perLine
-          ? acc.map((line, i) => (i == acc.length - 1 ? [...line, song] : line))
-          : [...acc, [song]],
-      [[]] as Song[][]
-    );
+    });
+
+  // null is for an advertisement on the end
+  return [..._s, { slug: "advert" } satisfies Advert].reduce(
+    (acc, song) =>
+      acc[acc.length - 1].length < perLine
+        ? acc.map((line, i) => (i == acc.length - 1 ? [...line, song] : line))
+        : [...acc, [song]],
+    [[]] as (Song | Advert)[][]
+  );
+};
 
 const Video = (song: Song) => (
   <li className="block">
@@ -34,7 +43,7 @@ const Lines = ({
   className,
   expanded,
 }: {
-  lines: Song[][];
+  lines: (Song | Advert)[][];
   className: string;
   expanded: boolean;
 }) => (
@@ -48,15 +57,29 @@ const Lines = ({
         )}
         key={line.map(({ slug }) => slug).join()}
       >
-        {line.map((song) => (
-          <Video key={song.slug} {...song} />
-        ))}
+        {line.map((song) =>
+          "metadata" in song ? (
+            <Video key={song.slug} {...song} />
+          ) : (
+            <a
+              key={song.slug}
+              href="https://www.youtube.com/@smyccem"
+              target="_blank"
+              className="group block relative border-white border-3 cursor-pointer aspect-video animation-magic-backdrop text-center"
+            >
+              <div className="mt-2">Náš Youtube kanál</div>
+              <PiYoutubeLogo className="absolute inset-[50%] translate-[-50%] text-4xl lg:text-6xl group-hover:text-3xl group-hover:lg:text-5xl transition-all" />
+
+              {/* <PiYoutubeLogo className="w-8 h-8 md:w-10 md:h-10 ml-1" /> */}
+            </a>
+          )
+        )}
       </ul>
     ))}
   </>
 );
 
-export default function Videos({ allSongs }: { allSongs: Song[] }) {
+export default function Videos({ songs }: { songs: Song[] }) {
   const [expanded, setExpanded] = useState(false);
 
   const clsBtn =
@@ -65,12 +88,12 @@ export default function Videos({ allSongs }: { allSongs: Song[] }) {
   return (
     <div className="pb-4">
       <Lines
-        lines={toLines(allSongs, 3)}
+        lines={toLines(songs, 3)}
         className="hidden md:block space-y-1 lg:space-y-2 columns-3"
         expanded={expanded}
       />
       <Lines
-        lines={toLines(allSongs, 2)}
+        lines={toLines(songs, 2)}
         className="md:hidden space-y-1 lg:space-y-2 columns-2"
         expanded={expanded}
       />

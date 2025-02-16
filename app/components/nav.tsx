@@ -67,8 +67,7 @@ const Item = ({
           "group flex items-center justify-center lg:block lg:pr-8  uppercase font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap",
           {
             "text-white": !animated,
-            "animate-[text_5s_ease_infinite] bg-gradient-to-r from-white via-purple-500 to-teal-500 bg-clip-text text-transparent":
-              animated,
+            "animation-magic-text": animated,
           },
         ])}
       >

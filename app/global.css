@@ -113,3 +113,11 @@ body {
     background-position: right center;
   }
 }
+
+.animation-magic-text {
+  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white via-purple-500 to-teal-500 bg-clip-text text-transparent
+}
+
+.animation-magic-backdrop {
+  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white/35 via-purple-500/35 to-teal-500/35 bg-amber-300/15
+}
