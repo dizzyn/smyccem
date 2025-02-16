@@ -4,6 +4,10 @@
   @apply hover:underline decoration-dotted underline-offset-4;
 }
 
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
@@ -119,5 +123,9 @@ body {
 }
 
 .animation-magic-backdrop {
-  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white/35 via-purple-500/35 to-teal-500/35 bg-amber-300/15
+  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white/35 via-purple-500/35 to-teal-500/35
+}
+
+.animation-magic-backdrop:hover {
+  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white/65 via-purple-500/65 to-teal-500/65
 }
