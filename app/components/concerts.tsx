@@ -1,5 +1,5 @@
 import fetchConcerts from "app/fetchConcerts";
-import { getDate, getMonth } from "app/utils/date";
+import { getDate, getMonth, getMonthStr } from "app/utils/date";
 import Link from "next/link";
 import { use, Suspense } from "react";
 import { PiArrowUpRightBold } from "react-icons/pi";
@@ -17,16 +17,16 @@ function List() {
           key={concert.date}
           className="mb-4 flex items-center justify-between gap-4"
         >
-          <div className="flex items-center lg:gap-6 gap-4 ">
-            <div className="lg:divide-y-4 divide-y-2 text-center inline-flex gap-1 flex-col text-3xl lg:text-5xl font-bold border-r-2 lg:border-r-4">
-              <span className="pr-2 pb-1">{getDate(concert.date)}</span>
-              <span className="pr-2 pt-1">{getMonth(concert.date)}</span>
+          <div className="flex items-center lg:gap-6 gap-2 sm:gap-4 text-lg sm:text-3xl transition-all">
+            <div className="lg:divide-y-2 divide-y-2 text-center inline-flex gap-1 flex-col font-bold border-r-2 lg:border-r-4 w-14 lg:w-20 ">
+              <span>{getDate(concert.date)}</span>
+              <span className="uppercase text-sm sm:text-2xl">
+                {getMonthStr(concert.date)}
+              </span>
             </div>
-            <div className="flex flex-col lg:gap-2">
-              <div className="text-xl lg:text-3xl font-bold">
-                {concert.venue}
-              </div>
-              <div>
+            <div className="inline-flex flex-col">
+              <div className="font-bold ">{concert.venue}</div>
+              <div className="text-sm sm:text-2xl">
                 {[concert.city, concert.time, concert.comment]
                   .filter((a) => !!a)
                   .join(", ")}
