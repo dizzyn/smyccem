@@ -40,17 +40,6 @@ export default function Page() {
           v kostelích, kavárnách a barech.
         </p>
       </div>
-      <div className="mt-8">
-        <div className={clsLine}>
-          <PiGoogleDriveLogo />
-          <a
-            href="https://drive.google.com/drive/folders/1tMKG5XhCWe-H-izHxzDAe-r-WiDSWXwK"
-            className="link"
-          >
-            Pro pořadatele: press kit, fotografie, anotace
-          </a>
-        </div>
-      </div>
     </section>
   );
 }

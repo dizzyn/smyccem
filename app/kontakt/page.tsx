@@ -62,7 +62,6 @@ export default function Page() {
             Booking &ndash; Alžběta Randusová
           </h2>
           <div className={clsLine}>
-            {" "}
             <PiEnvelope />
             <a href="mailto:alzbeta.randusova@gmail.com" className="link">
               alzbeta.randusova@gmail.com
