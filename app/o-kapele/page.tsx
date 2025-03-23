@@ -17,7 +17,7 @@ export default function Page() {
       <div className="text-xl lg:text-2xl font-medium max-w-xl text-white space-y-8 leading-9">
         <h1 className="text-4xl">Trhni si smyčcem</h1>
         <p>
-          Hrajeme pro různé příležitosti, spíše k poslechu než k tanci. Jsme
+          Hrajeme pro různé příležitosti, spíše k poslechu než tanci. Jsme
           hudební skupina s vlastní tvorbou.
         </p>
         <p>
@@ -26,7 +26,7 @@ export default function Page() {
           naše písně spadají do mnoha žánrů.
         </p>
         <p>
-          Poetika čerpáme z rozervaného Českého severu a magické reality
+          Poetiku čerpáme z rozervaného Českého severu a magické reality
           pražských Nuslí. Inspirují nás sociální a literární témata, hrajeme
           pro radost i na protest.
         </p>
@@ -37,7 +37,7 @@ export default function Page() {
         <p>
           Pokud to prostory umožňují, dokážeme hrát zcela akusticky. Zvládne ale
           také velká podia pod širým nebem kompletně ozvučeni. Hrajeme na ulici,
-          v kostelích, kavárnách a barech.
+          v galeriích, divadlech, kavárnách a barech.
         </p>
       </div>
     </section>
