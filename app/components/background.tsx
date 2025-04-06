@@ -33,7 +33,6 @@ export default function Background({
   const bgId = id || SSRrandomBgId;
 
   return path == "/" ? (
-    // <div className="relative z-0 opacity-100 flex items-center justify-center h-screen overflow-hidden">
     <video
       autoPlay
       muted
@@ -41,11 +40,11 @@ export default function Background({
       id="myVideo"
       poster="/videos/bg02.png"
       className="bg-video"
+      controlsList="nodownload"
     >
       <source src="/videos/bg02.mp4" type="video/mp4" />
     </video>
   ) : (
-    // </div>
     <div className="absolute inset-0 overflow-hidden">
       <div
         className={classNames(
