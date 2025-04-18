@@ -41,6 +41,8 @@ export default function Background({
       poster="/videos/bg02.png"
       className="bg-video"
       controlsList="nodownload"
+      playsInline
+      style={{ userSelect: "none" }}
     >
       <source src="/videos/bg02.mp4" type="video/mp4" />
     </video>
