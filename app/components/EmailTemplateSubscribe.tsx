@@ -1,7 +1,7 @@
 import { baseUrl } from "app/basepath";
 import * as React from "react";
 import { Button, Container } from "@react-email/components";
-import { Section, Img, Text, Row, Column, Link } from "@react-email/components";
+import { Section, Text, Link } from "@react-email/components";
 
 interface EmailTemplateProps {
   token: string;
@@ -22,7 +22,7 @@ export const EmailTemplateSubscribe: React.FC<Readonly<EmailTemplateProps>> = ({
 }) => (
   <Container style={{ fontSize: "16px" }}>
     <Box>
-      <h1>Blažejův zpravodaj</h1>
+      <h1>Blažejův ňůsvetr</h1>
       🦄 Ahoj, <br /> &nbsp;&nbsp;&nbsp;já jsem <b>Blažej</b>, dobrý přítel
       kapely <b>Trhni si smyčcem</b>.
     </Box>
@@ -66,17 +66,10 @@ export const EmailTemplateSubscribe: React.FC<Readonly<EmailTemplateProps>> = ({
 
     <Box>
       <div>
-        ✂️ Aktuálně stříháme dema na tuto sezónu, bude jich celkem 5 a mají nám
-        otevřít dveře na malé festivaly a do hezkých galerií a kaváren.
-      </div>
-      <div style={{ margin: "8px 0", textAlign: "center" }}>
-        <a href="https://www.youtube.com/watch?v=kda5NQ6ysSA&list=PL1q1_Yr3hdnZbZiWcHzEeWqFtRMgl9e07&index=1">
-          Koukni na první dva kousky 🎸
+        ✂️ Aktuálně kapela rozjíždí šňůru koncertů, najdi si ten svůj na{" "}
+        <a href="https://www.smyccem.cz/koncerty">
+          http://smyccem.cz/koncerty🎸
         </a>
-      </div>
-      <div>
-        Pokud znáš nějakého vlivného kavárníka, promotéra nebo publicistu, ztrať
-        prosím slovo.
       </div>
     </Box>
 
