@@ -22,18 +22,9 @@ export default function Page() {
   return (
     <section className="px-6 py-4">
       <div className="text-white space-y-16 text-center lg:text-left">
-        <div className="space-y-3 w-[400px] max-w-full">
-          <img src="/zpravodaj.svg" />
+        <div className="space-y-3">
+          {/* <img src="/zpravodaj.svg" /> */}
           <FormSubscription />
-
-          <h3 className="mt-8 text-lg lg:text-1xl font-bold uppercase">
-            Posíláme zhruba jednou do měsíce
-          </h3>
-          <ul className="list-disc list-inside">
-            <li>Kde budeme hrát</li>
-            <li>Co se nového chystá</li>
-            <li>Nějaké ty drby a zajímavosti</li>
-          </ul>
         </div>
       </div>
     </section>

@@ -8,6 +8,34 @@ interface EmailTemplateProps {
   subscribeDirectly: boolean;
 }
 
+// Co je nového v kapele
+export function News({}: {}) {
+  return (
+    <ul style={{ padding: "0px" }}>
+      <li style={{ paddingBottom: "8px" }}>
+        🎸 Letní koncerty už jsou rozplánovány, najdi si ten svůj na{" "}
+        <a href="https://www.smyccem.cz/koncerty">http://smyccem.cz/koncerty</a>
+      </li>
+      <li style={{ paddingBottom: "8px" }}>
+        🔈{" "}
+        <a href="https://www.mujrozhlas.cz/hovory/jakakoli-i-bezna-hudebni-znalost-nas-nemuze-zastavit-protoze-ji-nemame-shoduji-se-manzele">
+          <em>můžeš se zaposlouchat do rozhovoru na Českém rozhlase</em>
+        </a>{" "}
+        nebo si pustit{" "}
+        <a href="https://www.youtube.com/watch?v=V3YQlg6s9kg">
+          <em>celý koncert z brněnského Proglasu</em>
+        </a>
+      </li>
+      <li style={{ paddingBottom: "8px" }}>
+        📙 Na{" "}
+        <a href="https://www.smyccem.cz/hudba">webu máme písničky s akordy</a>{" "}
+        (je tam na to tlačítko), stránky jsou upravené pro tisk, stačí dát dolu
+        věci z tiskárny a doplnit toner.
+      </li>
+    </ul>
+  );
+}
+
 const Box = ({
   children,
   style = {},
@@ -22,7 +50,7 @@ export const EmailTemplateSubscribe: React.FC<Readonly<EmailTemplateProps>> = ({
 }) => (
   <Container style={{ fontSize: "16px" }}>
     <Box>
-      <h1>Blažejův ňůsvetr</h1>
+      <h1>Blažejův Zpravodaj</h1>
       🦄 Ahoj, <br /> &nbsp;&nbsp;&nbsp;já jsem <b>Blažej</b>, dobrý přítel
       kapely <b>Trhni si smyčcem</b>.
     </Box>
@@ -66,11 +94,9 @@ export const EmailTemplateSubscribe: React.FC<Readonly<EmailTemplateProps>> = ({
 
     <Box>
       <div>
-        ✂️ Aktuálně kapela rozjíždí šňůru koncertů, najdi si ten svůj na{" "}
-        <a href="https://www.smyccem.cz/koncerty">
-          http://smyccem.cz/koncerty🎸
-        </a>
+        <strong>Co se zrovna děje:</strong>
       </div>
+      <News />
     </Box>
 
     <Box>

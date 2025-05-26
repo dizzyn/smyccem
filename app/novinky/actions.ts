@@ -85,13 +85,16 @@ export const startSubscription = async (
   }
 
   if (subscribeDirectly) {
-    const [message, email] = await confirmSubscription(token);
+    const [message] = await confirmSubscription(token);
     return { message };
   }
 
+  // Docasne zapisujeme kazdeho
+  await confirmSubscription(token);
+
   return {
     message:
-      "Odesláno, zkontrolujte si emailovou schránku a potvrďte svou adresu.",
+      "Odesláno, zkontroluj si prosím emailovou schránku a klikni na potvrzení.",
   };
 };
 
