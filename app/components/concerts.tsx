@@ -5,11 +5,11 @@ import { use, Suspense } from "react";
 import { PiArrowUpRightBold } from "react-icons/pi";
 
 // Data jsou zde:
-// – https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/edit#gid=1460709352
+// – https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/edit?gid=445078617
 
 function List() {
   const concerts = use(fetchConcerts());
-
+  console.log(concerts);
   return (
     <ul className="text-xl lg:text-2xl font-medium text-white space-y-8 lg:space-y-10 leading-9">
       {concerts.map((concert) => (
