@@ -5,6 +5,7 @@ import { generateThumbUrl } from "app/hudba/utils-cli";
 import React, { useState } from "react";
 import { BsPlayBtnFill } from "react-icons/bs";
 import { PiX, PiYoutubeLogo } from "react-icons/pi";
+import Image from "next/image";
 
 export default function VideoSwitch({
   song,
@@ -31,7 +32,13 @@ export default function VideoSwitch({
           onClick={() => setShowVideo(!showVideo)}
           className="group relative border-white border-3 cursor-pointer aspect-video backdrop-blur-2xl"
         >
-          <img src={generateThumbUrl(song)} alt="Cover Image" />
+          <Image
+            src={generateThumbUrl(song)}
+            alt="Cover Image"
+            width={314}
+            height={177}
+            className="w-full h-full object-cover"
+          />
           <BsPlayBtnFill className="absolute top-0 left-1  text-2xl lg:text-4xl group-hover:text-3xl group-hover:lg:text-5xl transition-all" />
           <div className="absolute left-0 right-O bottom-0.5 pl-1 text-right">
             {song.metadata.title}

@@ -6,14 +6,11 @@ import classNames from "classnames";
 import { ReactNode } from "react";
 import Link from "next/link";
 import { Song as SongType } from "app/hudba/[slug]/page";
-import { useSearchParams } from "next/navigation";
 
 function Song({ children, song }: { song: SongType; children: ReactNode }) {
   const [ChordsSwitch, chordsCls] = useChordSwitch();
   const clsBtn =
     " text-lg sm:text-xl [&>svg]:text-2xl sm:[&>svg]:text-3xl text-white flex gap-1 items-center cursor-pointer whitespace-nowrap relative hover:top-[2px] transition-all ";
-
-  const params = useSearchParams();
 
   return (
     <div className="space-y-2 lg:ml-2">
@@ -33,12 +30,7 @@ function Song({ children, song }: { song: SongType; children: ReactNode }) {
 
         <ChordsSwitch btnClassNames={clsBtn + " ml-auto"} />
         {song.metadata.youtube && (
-          <VideoSwitch
-            song={song}
-            btnClassNames={clsBtn}
-            style="button"
-            autoplay={params.has("play")}
-          />
+          <VideoSwitch song={song} btnClassNames={clsBtn} style="button" />
         )}
       </div>
       {song.metadata.info && (

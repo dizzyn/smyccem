@@ -4,7 +4,6 @@ import { getSongs } from "app/hudba/utils";
 import { baseUrl } from "app/basepath";
 import { generateThumbUrl } from "../utils-cli";
 import Song from "app/components/song";
-import { Suspense } from "react";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -93,11 +92,10 @@ export default async function SongPage({ params }: Params) {
           }),
         }}
       />
-      <Suspense fallback={<>...</>}>
-        <Song song={song}>
-          <CustomMDX source={song.content} />
-        </Song>
-      </Suspense>
+
+      <Song song={song}>
+        <CustomMDX source={song.content} />
+      </Song>
     </section>
   );
 }

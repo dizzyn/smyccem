@@ -70,7 +70,7 @@ export const startSubscription = async (
     from: "Jednorožec Blažej <blazej@smyccem.cz>",
     to: [email],
     subject: "Trhni si smyčcem – Přihlášení k odběru novinek ",
-    react: EmailTemplateSubscribe({ token, subscribeDirectly }),
+    react: await EmailTemplateSubscribe({ token, subscribeDirectly }),
     headers: {
       "List-Unsubscribe": `<${baseUrl + "unsubscribe/" + token}>`,
       "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",

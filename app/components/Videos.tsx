@@ -6,7 +6,6 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import classNames from "classnames";
 import VideoSwitch from "./videoSwitch";
 import { PiYoutubeLogo } from "react-icons/pi";
-import { BsPlayBtnFill } from "react-icons/bs";
 
 interface Advert {
   slug: "advert";

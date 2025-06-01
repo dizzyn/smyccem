@@ -9,7 +9,7 @@ import { PiArrowUpRightBold } from "react-icons/pi";
 
 function List() {
   const concerts = use(fetchConcerts());
-  console.log(concerts);
+
   return (
     <ul className="text-xl lg:text-2xl font-medium text-white space-y-8 lg:space-y-10 leading-9">
       {concerts.map((concert) => (
