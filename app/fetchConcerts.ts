@@ -20,7 +20,7 @@ function fetchConcerts() {
           // @ts-ignore
           .table.rows.map(({ c }) => c.map((x) => x?.v))
           // @ts-ignore
-          .filter((_, i) => i >= 0)
+          .filter((_, i) => i >= 1)
           // @ts-ignore
           .map((a) => ({
             date: a[0],
