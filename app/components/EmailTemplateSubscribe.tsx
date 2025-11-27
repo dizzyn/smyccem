@@ -13,24 +13,24 @@ export function News({}: {}) {
   return (
     <ul style={{ padding: "0px" }}>
       <li style={{ paddingBottom: "8px" }}>
-        🎸 Letní koncerty už jsou rozplánovány, najdi si ten svůj na{" "}
-        <a href="https://www.smyccem.cz/koncerty">http://smyccem.cz/koncerty</a>
+        Protože léto je nenávratně pryč, přejeme hezký podzim a přidáváme odkaz
+        na písničky z letních koncertů, poslechnout si můžete třeba{" "}
+        <a href="https://www.youtube.com/watch?v=R4-tVijaAxg">Bílou dodávku</a>{" "}
+        nebo <a href="https://www.youtube.com/watch?v=R4-tVijaAxg">Odsun</a>.
+      </li>
+      <li style={{ paddingBottom: "8px" }}>
+        Jinak se chystáme na další sezónu a těšíme se až se zase potkáme.
       </li>
       <li style={{ paddingBottom: "8px" }}>
         🔈{" "}
         <a href="https://www.mujrozhlas.cz/hovory/jakakoli-i-bezna-hudebni-znalost-nas-nemuze-zastavit-protoze-ji-nemame-shoduji-se-manzele">
           <em>můžeš se zaposlouchat do rozhovoru na Českém rozhlase</em>
-        </a>{" "}
-        nebo si pustit{" "}
-        <a href="https://www.youtube.com/watch?v=V3YQlg6s9kg">
-          <em>celý koncert z brněnského Proglasu</em>
         </a>
       </li>
       <li style={{ paddingBottom: "8px" }}>
         📙 Na{" "}
-        <a href="https://www.smyccem.cz/hudba">webu máme písničky s akordy</a>{" "}
-        (je tam na to tlačítko), stránky jsou upravené pro tisk, stačí dát dolu
-        věci z tiskárny a doplnit toner.
+        <a href="https://www.smyccem.cz/hudba">webu máme písničky s akordy</a>,
+        stránky jsou upravené pro tisk.
       </li>
     </ul>
   );

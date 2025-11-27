@@ -90,7 +90,7 @@ export const startSubscription = async (
   }
 
   // Docasne zapisujeme kazdeho
-  await confirmSubscription(token);
+  // await confirmSubscription(token);
 
   return {
     message:
