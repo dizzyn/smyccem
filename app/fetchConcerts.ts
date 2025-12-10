@@ -9,18 +9,24 @@ export interface Concert {
 
 function fetchConcerts() {
   return fetch(
-    "https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/gviz/tq?gid=445078617",
+    "https://docs.google.com/spreadsheets/d/1nB21GAF1Yknomu2jN7xqXg1_gBCrWalkqygytQyUP0E/gviz/tq?gid=1623556782",
     { next: { revalidate: 30 } }
   ).then((a) =>
     a.text().then((s) => {
-      const json = s.substring(47, s.length - 2);
+      const match = s.match(
+        /google\.visualization\.Query\.setResponse\((.*)\)/
+      );
+      if (!match || !match[1]) {
+        throw new Error("Invalid response from Google Sheets");
+      }
+      const json = JSON.parse(match[1]);
 
       return (
-        JSON.parse(json)
+        json// @ts-ignore
+        .table.rows
+          .map(({ c }) => c.map((x) => x?.f ?? x?.v))
           // @ts-ignore
-          .table.rows.map(({ c }) => c.map((x) => x?.v))
-          // @ts-ignore
-          .filter((_, i) => i >= 1)
+          .filter((a) => a[0])
           // @ts-ignore
           .map((a) => ({
             date: a[0],
