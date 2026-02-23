@@ -13,8 +13,8 @@ export function News({}: {}) {
   return (
     <ul style={{ padding: "0px" }}>
       <li style={{ paddingBottom: "8px" }}>
-        Protože léto je nenávratně pryč, přejeme hezký podzim a přidáváme odkaz
-        na písničky z letních koncertů, poslechnout si můžete třeba{" "}
+        Protože zima je nenávratně pryč, přejeme hezké jaro a přidáváme odkaz
+        na písničky z loňských koncertů, poslechnout si můžete třeba{" "}
         <a href="https://www.youtube.com/watch?v=R4-tVijaAxg">Bílou dodávku</a>{" "}
         nebo <a href="https://www.youtube.com/watch?v=R4-tVijaAxg">Odsun</a>.
       </li>

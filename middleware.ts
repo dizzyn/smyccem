@@ -1,4 +1,4 @@
-import { slugify } from "app/hudba/utils";
+import { slugify } from "app/hudba/utils-edge";
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {

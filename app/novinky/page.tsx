@@ -1,16 +1,4 @@
-import React from "react";
-import {
-  PiEnvelope,
-  PiFacebookLogo,
-  PiGoogleDriveLogo,
-  PiInstagramLogo,
-  PiPhone,
-  PiYoutubeLogo,
-} from "react-icons/pi";
 import FormSubscription from "../components/FormSubscription";
-import { useSearchParams } from "next/navigation";
-import classNames from "classnames";
-import Image from "next/image";
 import { News } from "app/components/EmailTemplateSubscribe";
 
 export const metadata = {
