@@ -3,6 +3,9 @@ import path from "path";
 import type { Song, Metadata } from "./[slug]/page";
 import { slugify } from "./utils-edge";
 
+// Re-export for backwards compatibility
+export { slugify };
+
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);

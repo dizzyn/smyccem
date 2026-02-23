@@ -24,11 +24,11 @@ function fetchConcerts() {
       return (
         json// @ts-ignore
         .table.rows
-          .map(({ c }) => c.map((x) => x?.f ?? x?.v))
+          .map(({ c }: any) => c.map((x: any) => x?.f ?? x?.v))
           // @ts-ignore
-          .filter((a) => a[0])
+          .filter((a: any) => a[0])
           // @ts-ignore
-          .map((a) => ({
+          .map((a: any) => ({
             date: a[0],
             time: a[1],
             venue: a[2],
