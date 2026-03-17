@@ -39,6 +39,16 @@ export default function Page() {
           také velká podia pod širým nebem kompletně ozvučeni. Hrajeme na ulici,
           v galeriích, divadlech, kavárnách a barech.
         </p>
+        <div className={clsLine}>
+          <PiGoogleDriveLogo />
+          <a
+            href="https://drive.google.com/drive/folders/1tMKG5XhCWe-H-izHxzDAe-r-WiDSWXwK"
+            className="link"
+            target="_blank"
+          >
+            Press kit, fotografie, anotace
+          </a>
+        </div>
       </div>
     </section>
   );

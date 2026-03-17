@@ -1,0 +1,74 @@
+[
+  {
+    "date": "2026-03-19",
+    "time": "19:00",
+    "venue": "Bulmex",
+    "city": "Mexická 2, Praha 10",
+    "url": "https://www.bulmex.cz/",
+    "comment": ""
+  },
+  {
+    "date": "2026-03-21",
+    "time": "16:00",
+    "venue": "Nová Perla",
+    "city": "Kyjov (Krásná lípa)",
+    "url": "https://novaperla.cz/",
+    "comment": ""
+  },
+  {
+    "date": "2026-04-07",
+    "time": "19:30",
+    "venue": "Cafe Husovka",
+    "city": "Husova 9, Staré Město",
+    "url": "https://www.facebook.com/cafehusovkas",
+    "comment": "na křtu knihy"
+  },
+  {
+    "date": "2026-05-14",
+    "time": "19:00",
+    "venue": "Kaštan",
+    "city": "Břevnov, Bělohorská 150, Praha 6",
+    "url": "",
+    "comment": "Soutěž písničkářů - Notování"
+  },
+  {
+    "date": "2026-05-16",
+    "time": "19:00",
+    "venue": "Kafé Ořech",
+    "city": "Mnichovo Hradiště",
+    "url": "",
+    "comment": "Na pozvání HolkyTonk"
+  },
+  {
+    "date": "2026-05-29",
+    "time": "",
+    "venue": "Praha žije hudbou",
+    "city": "",
+    "url": "",
+    "comment": ""
+  },
+  {
+    "date": "2026-06-18",
+    "time": "19:00",
+    "venue": "Klub Válec",
+    "city": "Vinohrady",
+    "url": "",
+    "comment": "host: Duo Stmívání"
+  },
+  {
+    "date": "2026-06-27",
+    "time": "17:00",
+    "venue": "Svatojánská noc",
+    "city": "Velká Javorská",
+    "url": "",
+    "comment": ""
+  },
+  {
+    "date": "2026-08-15",
+    "time": "17:00",
+    "venue": "Dřevstock",
+    "city": "Dřevčice (dubá)",
+    "url": "",
+    "comment": ""
+  }
+]
