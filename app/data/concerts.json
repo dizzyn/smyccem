@@ -1,43 +1,11 @@
 [
-  {
-    "date": "2026-04-07",
-    "time": "19:30",
-    "venue": "Zasekávák",
-    "city": "Jaselská 246/20, Praha 6-Bubeneč",
-    "url": "https://www.zasekavak.cz/",
-    "comment": "dvojkoncert s Džezvicou"
-  },
-  {
-    "date": "2026-05-14",
+    {
+    "date": "2026-06-23",
     "time": "19:00",
-    "venue": "Kaštan",
-    "city": "Břevnov, Bělohorská 150, Praha 6",
-    "url": "",
-    "comment": "Soutěž písničkářů - Notování"
-  },
-  {
-    "date": "2026-05-16",
-    "time": "19:00",
-    "venue": "Kafé Ořech",
-    "city": "Mnichovo Hradiště",
-    "url": "",
-    "comment": "Na pozvání HolkyTonk"
-  },
-  {
-    "date": "2026-05-29",
-    "time": "18:00",
-    "venue": "Praha žije hudbou",
-    "city": "Praha, Dejvice, Kulaťák, cafe Šesťák",
-    "url": "",
-    "comment": ""
-  },
-  {
-    "date": "2026-06-18",
-    "time": "19:00",
-    "venue": "Klub Válec",
-    "city": "Vinohrady",
-    "url": "",
-    "comment": "host: Duo Stmívání"
+    "venue": "Café Club Míšeňská",
+    "city": "Praha 1",
+    "url": "https://www.facebook.com/events/2502230803573551/",
+    "comment": "Jako hosté Anety Wills"
   },
   {
     "date": "2026-06-27",
@@ -70,5 +38,21 @@
     "city": "Mexická 692/2, Praha 10",
     "url": "https://www.bulmex.cz/",
     "comment": "V rámci Zažít město jinak"
+  },
+  {
+    "date": "2026-09-29",
+    "time": "19:00",
+    "venue": "Loď Tajemství",
+    "city": "",
+    "url": "https://lodtajemstvi.cz/",
+    "comment": "úterý"
+  },
+  {
+    "date": "2026-11-05",
+    "time": "19:00",
+    "venue": "Kaštan",
+    "city": "Břevnov, Bělohorská 150, Praha 6",
+    "url": "",
+    "comment": "3. semifinálové kolo - Semifinále Notování"
   }
 ]
