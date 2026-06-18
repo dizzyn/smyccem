@@ -9,7 +9,7 @@
   },
   {
     "date": "2026-06-27",
-    "time": "17:00",
+    "time": "18:00",
     "venue": "Svatojánská noc",
     "city": "Velká Javorská",
     "url": "",
@@ -17,11 +17,11 @@
   },
   {
     "date": "2026-08-15",
-    "time": "17:00",
+    "time": "16:00",
     "venue": "Dřevstock",
     "city": "Dřevčice (dubá)",
     "url": "",
-    "comment": ""
+    "comment": "hrajeme v 16:15"
   },
     {
     "date": "2026-08-30",
@@ -33,7 +33,7 @@
   },
   {
     "date": "2026-09-19",
-    "time": "??:??",
+    "time": "16:00",
     "venue": "Zažít Bulbex Jinak",
     "city": "Mexická 692/2, Praha 10",
     "url": "https://www.bulmex.cz/",
@@ -46,6 +46,14 @@
     "city": "",
     "url": "https://lodtajemstvi.cz/",
     "comment": "úterý"
+  },
+  {
+    "date": "2026-10-22",
+    "time": "19:00",
+    "venue": "Salmovská",
+    "city": "",
+    "url": "",
+    "comment": ""
   },
   {
     "date": "2026-11-05",
