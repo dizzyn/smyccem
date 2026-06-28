@@ -13,13 +13,13 @@ export function News({}: {}) {
   return (
     <ul style={{ padding: "0px" }}>
       <li style={{ paddingBottom: "8px" }}>
-        Protože zima je nenávratně pryč, přejeme hezké jaro a přidáváme odkaz
+        Přidáváme odkaz
         na písničky z loňských koncertů, poslechnout si můžete třeba{" "}
         <a href="https://www.youtube.com/watch?v=R4-tVijaAxg">Bílou dodávku</a>{" "}
         nebo <a href="https://www.youtube.com/watch?v=R4-tVijaAxg">Odsun</a>.
       </li>
       <li style={{ paddingBottom: "8px" }}>
-        Jinak se chystáme na další sezónu a těšíme se až se zase potkáme.
+        Jinak se chystáme na další koncerty a těšíme se až se zase potkáme.
       </li>
       <li style={{ paddingBottom: "8px" }}>
         🔈{" "}
