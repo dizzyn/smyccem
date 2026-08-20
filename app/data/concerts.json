@@ -1,51 +1,35 @@
 [
-    {
-    "date": "2026-06-23",
-    "time": "19:00",
-    "venue": "Café Club Míšeňská",
-    "city": "Praha 1",
-    "url": "https://www.facebook.com/events/2502230803573551/",
-    "comment": "Jako hosté Anety Wills"
-  },
   {
-    "date": "2026-06-27",
-    "time": "18:00",
-    "venue": "Svatojánská noc",
-    "city": "Velká Javorská",
-    "url": "",
-    "comment": ""
-  },
-  {
-    "date": "2026-08-15",
-    "time": "16:00",
-    "venue": "Dřevstock",
-    "city": "Dřevčice (dubá)",
-    "url": "",
-    "comment": "hrajeme v 16:15"
-  },
-    {
     "date": "2026-08-30",
-    "time": "??:??",
-    "venue": "Bobeš Fest",
-    "city": "Dolních Počernice",
+    "time": "15:30",
+    "venue": "Bobeš fest",
+    "city": "Dolní Počernice",
     "url": "",
     "comment": ""
   },
   {
     "date": "2026-09-19",
-    "time": "16:00",
-    "venue": "Zažít Bulbex Jinak",
+    "time": "19:00",
+    "venue": "Zažít Bulmex jinak",
     "city": "Mexická 692/2, Praha 10",
     "url": "https://www.bulmex.cz/",
     "comment": "V rámci Zažít město jinak"
   },
   {
     "date": "2026-09-29",
-    "time": "19:00",
+    "time": "18:00",
     "venue": "Loď Tajemství",
     "city": "",
     "url": "https://lodtajemstvi.cz/",
     "comment": "úterý"
+  },
+  {
+    "date": "2026-10-03",
+    "time": "16:00",
+    "venue": "Moštování v Dřevčicích",
+    "city": "Dřevčice",
+    "url": "",
+    "comment": ""
   },
   {
     "date": "2026-10-22",
@@ -54,14 +38,5 @@
     "city": "",
     "url": "",
     "comment": ""
-  },
-  {
-    "date": "2026-11-05",
-    "time": "19:00",
-    "venue": "Kaštan",
-    "city": "Břevnov, Bělohorská 150, Praha 6",
-    "url": "",
-    "comment": "3. semifinálové kolo - Semifinále Notování"
   }
-
 ]
