@@ -8,3 +8,7 @@ export const backgrounds = [
   "bg-green-700",
   "bg-indigo-700",
 ];
+
+export function pickRandomBackgroundId() {
+  return Math.floor(Math.random() * backgrounds.length);
+}

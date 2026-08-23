@@ -11,22 +11,26 @@ function List() {
   const concerts = use(fetchConcerts());
 
   return (
-    <ul className="text-xl lg:text-2xl font-medium text-white space-y-8 lg:space-y-10 leading-9">
+    <ul className="divide-y divide-stone-100/15 border-t border-stone-100/15">
       {concerts.map((concert) => (
         <li
           key={concert.date}
-          className="mb-4 flex items-center justify-between gap-4"
+          className="flex items-center justify-between gap-4 py-6"
         >
-          <div className="flex items-center lg:gap-6 gap-2 sm:gap-4 text-lg sm:text-3xl transition-all">
-            <div className="lg:divide-y-2 divide-y-2 text-center inline-flex gap-1 flex-col font-bold border-r-2 lg:border-r-4 w-14 lg:w-20 ">
-              <span>{getDate(concert.date)}</span>
-              <span className="uppercase text-sm sm:text-2xl">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="inline-flex w-14 shrink-0 flex-col items-center gap-1 border-r border-stone-100/20 pr-4 text-center font-display sm:w-20">
+              <span className="text-2xl text-stone-50 sm:text-3xl">
+                {getDate(concert.date)}
+              </span>
+              <span className="text-xs uppercase tracking-[0.2em] text-accent-soft sm:text-sm">
                 {getMonthStr(concert.date)}
               </span>
             </div>
             <div className="inline-flex flex-col">
-              <div className="font-bold ">{concert.venue}</div>
-              <div className="text-sm sm:text-2xl">
+              <div className="font-display text-xl text-stone-50 sm:text-2xl">
+                {concert.venue}
+              </div>
+              <div className="text-sm text-stone-300/80 sm:text-base">
                 {[concert.city, concert.time, concert.comment]
                   .filter((a) => !!a)
                   .join(", ")}
@@ -36,9 +40,9 @@ function List() {
           {concert.url && (
             <Link
               href={concert.url}
-              className="bg-white shrink-0 hover:bg-black group transition-all w-12 h-12 md:w-20 md:h-20 flex items-center justify-center"
+              className="flex h-10 w-10 shrink-0 items-center justify-center border border-stone-100/40 text-stone-100 transition-all hover:border-accent hover:bg-accent hover:text-black"
             >
-              <PiArrowUpRightBold className="w-8 h-8 md:w-12 md:h-12 text-black group-hover:text-white transition-all" />
+              <PiArrowUpRightBold className="h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
           )}
         </li>

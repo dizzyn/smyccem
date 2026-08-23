@@ -2,7 +2,8 @@
 
 import { Song } from "app/hudba/[slug]/page";
 import { generateThumbUrl } from "app/hudba/utils-cli";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { BsPlayBtnFill } from "react-icons/bs";
 import { PiX, PiYoutubeLogo } from "react-icons/pi";
 import Image from "next/image";
@@ -20,6 +21,17 @@ export default function VideoSwitch({
 }) {
   const [showVideo, setShowVideo] = useState(autoplay);
 
+  useEffect(() => {
+    if (!showVideo) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowVideo(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showVideo]);
+
   return (
     <>
       {style == "button" ? (
@@ -30,45 +42,50 @@ export default function VideoSwitch({
       ) : (
         <div
           onClick={() => setShowVideo(!showVideo)}
-          className="group relative border-white border-3 cursor-pointer aspect-video backdrop-blur-2xl"
+          className="group relative aspect-video cursor-pointer overflow-hidden bg-black"
         >
           <Image
             src={generateThumbUrl(song)}
             alt="Cover Image"
-            width={314}
-            height={177}
-            className="w-full h-full object-cover"
+            width={1280}
+            height={720}
+            className="h-full w-full object-contain"
           />
-          <BsPlayBtnFill className="absolute top-0 left-1  text-2xl lg:text-4xl group-hover:text-3xl group-hover:lg:text-5xl transition-all" />
-          <div className="absolute left-0 right-O bottom-0.5 pl-1 text-right">
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-black/10 to-transparent" />
+          <BsPlayBtnFill className="absolute left-3 top-3 text-3xl text-stone-50 drop-shadow-lg transition-transform group-hover:scale-110 lg:text-4xl" />
+          <div className="absolute inset-x-0 bottom-0 p-3 text-right font-display text-stone-50">
             {song.metadata.title}
           </div>
         </div>
       )}
 
-      {showVideo && (
-        <div className="fixed inset-0 bg-black/20 backdrop-blur-2xl z-50 flex items-center justify-center p-4">
-          <button
-            className="absolute top-4 right-4 p-4 cursor-pointer hover:bg-white group transition-all"
-            onClick={() => setShowVideo(false)}
-          >
-            <PiX className="text-white group-hover:text-black w-7 h-7" />
-          </button>
-          <div className="max-w-5xl w-full rounded-lg relative aspect-video overflow-hidden">
-            <iframe
-              src={
-                "https://www.youtube.com/embed/" +
-                song.metadata.youtube +
-                "?autoplay=1"
-              }
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              className="w-full h-full shadow-2xl"
-            />
-          </div>
-        </div>
-      )}
+      {showVideo &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div className="fixed inset-0 bg-black/20 backdrop-blur-2xl z-50 flex items-center justify-center p-4">
+            <button
+              className="group absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center border border-stone-100/40 transition-all hover:border-accent hover:bg-accent"
+              onClick={() => setShowVideo(false)}
+              aria-label="Zavřít video"
+            >
+              <PiX className="h-6 w-6 text-white group-hover:text-black" />
+            </button>
+            <div className="max-w-5xl w-full rounded-lg relative aspect-video overflow-hidden">
+              <iframe
+                src={
+                  "https://www.youtube.com/embed/" +
+                  song.metadata.youtube +
+                  "?autoplay=1"
+                }
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="w-full h-full shadow-2xl"
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }

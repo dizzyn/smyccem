@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
@@ -13,24 +13,47 @@ export default function Background({
 }) {
   const path = usePathname();
 
-  const [id, setId] = useState<number>();
+  const [id, setId] = useState<number>(SSRrandomBgId);
+  const [videoOpacity, setVideoOpacity] = useState(0.5);
+  const isFirstPath = useRef(true);
 
   useEffect(() => {
-    // Rehydration
-    if (id == undefined) {
-      setId(SSRrandomBgId);
-    } else {
-      // Client side rendering
+    // Rehydration: skip re-randomizing on the initial mount
+    if (isFirstPath.current) {
+      isFirstPath.current = false;
+      return;
+    }
+
+    // Client side rendering: pick a new random background on path change
+    setId((currentId) => {
       const arr = backgrounds
         .map((color, id) => ({ color, id }))
-        .filter((a) => a.id !== id);
+        .filter((a) => a.id !== currentId);
 
-      setId(arr[Math.floor(Math.random() * arr.length) || 0].id);
-    }
+      return arr[Math.floor(Math.random() * arr.length) || 0].id;
+    });
   }, [path]);
 
-  // Server side rendering
-  const bgId = id || SSRrandomBgId;
+  useEffect(() => {
+    if (path !== "/") return;
+
+    const wrapper = document.getElementById("wrapper");
+    if (!wrapper) return;
+
+    const handleScroll = () => {
+      const progress = Math.min(
+        Math.max(wrapper.scrollTop / window.innerHeight, 0),
+        1
+      );
+      setVideoOpacity(0.5 * (1 - progress));
+    };
+
+    handleScroll();
+    wrapper.addEventListener("scroll", handleScroll, { passive: true });
+    return () => wrapper.removeEventListener("scroll", handleScroll);
+  }, [path]);
+
+  const bgId = id;
 
   return path == "/" ? (
     <video
@@ -39,10 +62,10 @@ export default function Background({
       loop
       id="myVideo"
       poster="/videos/bg02.png"
-      className="bg-video"
+      className="bg-video transition-opacity duration-100"
       controlsList="nodownload"
       playsInline
-      style={{ userSelect: "none" }}
+      style={{ userSelect: "none", opacity: videoOpacity }}
     >
       <source src="/videos/bg02.mp4" type="video/mp4" />
     </video>
@@ -50,7 +73,7 @@ export default function Background({
     <div className="absolute inset-0 overflow-hidden">
       <div
         className={classNames(
-          "absolute inset-0 overflow-hidden mix-blend-multiply -z-10 transition-colors duration-[2000ms] print:hidden",
+          "absolute inset-0 overflow-hidden mix-blend-multiply -z-10 transition-colors duration-2000 print:hidden",
           backgrounds[bgId % backgrounds.length]
         )}
       />

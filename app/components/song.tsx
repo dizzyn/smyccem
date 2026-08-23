@@ -19,10 +19,10 @@ function Song({ children, song }: { song: SongType; children: ReactNode }) {
       </div>
       <div className="flex flex-row px-3 lg:pl-0 gap-5 print:hidden">
         <Link
-          href="/hudba"
+          href="/#hudba"
           className={classNames(
             clsBtn,
-            "left-0 hover:-left-[4px] hover:!top-0"
+            "left-0 hover:-left-1 hover:top-0!"
           )}
         >
           <PiArrowLeftBold />

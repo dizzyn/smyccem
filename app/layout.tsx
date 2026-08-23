@@ -3,10 +3,19 @@ import type { Metadata } from "next";
 import { baseUrl } from "./basepath";
 import classNames from "classnames";
 import { GeistSans } from "geist/font/sans";
+import { Playfair_Display } from "next/font/google";
 import Navbar from "./components/nav";
 import Background from "./components/background";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { backgrounds } from "backgrounds";
+import { pickRandomBackgroundId } from "backgrounds";
+
+const playfair = Playfair_Display({
+  subsets: ["latin", "latin-ext"],
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -24,6 +33,12 @@ export const metadata: Metadata = {
     siteName: "Trhni si smyčcem",
     locale: "cs_CZ",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Trhni si smyčcem",
+    description:
+      "Trhni si smyčcem je komorní těleso mezi punkem a filharmonií.",
   },
   robots: {
     index: true,
@@ -44,9 +59,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // nahodne BG id ze server renderingu
-  const randomBgId = Math.floor(Math.random() * backgrounds.length);
+  const randomBgId = pickRandomBackgroundId();
   return (
-    <html lang="cs" className="h-full bg-black text-white overflow-hidden">
+    <html
+      lang="cs"
+      className={classNames(
+        GeistSans.variable,
+        playfair.variable,
+        "h-full bg-black text-stone-100 overflow-hidden"
+      )}
+    >
       <link
         rel="icon"
         type="image/png"
@@ -61,23 +83,16 @@ export default async function RootLayout({
         href="/favicon/apple-touch-icon.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
-      <meta name="theme-color" content="#ffffff" />
-      <body
-        className={classNames(
-          GeistSans.variable,
-          "h-full overflow-hidden print:overflow-visible"
-        )}
-      >
+      <meta name="theme-color" content="#0b0a09" />
+      <body className="h-full overflow-hidden print:overflow-visible">
         <SpeedInsights />
         <Background SSRrandomBgId={randomBgId} />
+        <Navbar />
         <div
-          className="overflow-auto lg:overflow-hidden print:overflow-visible h-full lg:grid lg:grid-cols-[0.8fr_1.2fr]"
+          className="overflow-auto print:overflow-visible relative h-full pt-24 lg:pt-28"
           id="wrapper"
         >
-          <Navbar />
-          <div className="lg:py-16 overflow-auto print:overflow-visible relative">
-            {children}
-          </div>
+          {children}
         </div>
       </body>
     </html>

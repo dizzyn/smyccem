@@ -2,7 +2,6 @@
 
 import { useActionState, useMemo, useState } from "react";
 import { startSubscription } from "../novinky/actions";
-import Image from "next/image";
 import { z } from "zod";
 import classNames from "classnames";
 import { EmailTemplateSubscribe, News } from "./EmailTemplateSubscribe";
@@ -37,40 +36,50 @@ export default function AddForm() {
     <form
       action={submitAction}
       className={classNames(
-        "border-white/90 border-2 bg-black/50 mx-auto flex flex-col sm:flex-row md:flex-row lg:flex-col xl:flex-row text-left"
+        "grid gap-8 border-t border-stone-100/15 pt-10 text-left lg:grid-cols-2 lg:gap-16 lg:pt-14"
       )}
     >
-      <div className="flex-1 p-4">
-        <h3 className="text-1xl lg:text-2xl font-bold ">
+      <div>
+        <h3 className="font-display text-2xl text-stone-50 lg:text-3xl">
           {subscribeDirectly ? (
             "Zapsat do listu bez potvrzení"
           ) : (
             <>
-              <span {...bind}>Zpravodaj</span> Jednorožce Blažeje
+              <span {...bind}>Zpravodaj</span>{" "}
+              <span className="italic text-accent-soft">
+                Jednorožce Blažeje
+              </span>
             </>
           )}
         </h3>
-        Posíláme na e-mail několikrát do roka kde budeme hrát, co je nového a co
-        se chystá.
+        <p className="mt-3 text-stone-300/80">
+          Posíláme na e-mail několikrát do roka kde budeme hrát, co je nového
+          a co se chystá.
+        </p>
       </div>
-      <div className="flex-1 p-4">
+      <div>
         {!state?.message && (
           <>
-            <label htmlFor="email">Napište svůj e-mail</label>
-            <div className="flex flex-col gap-2 md:flex-row mt-2 group">
+            <label
+              htmlFor="email"
+              className="text-[11px] uppercase tracking-[0.25em] text-stone-300/80"
+            >
+              Napište svůj e-mail
+            </label>
+            <div className="group mt-3 flex flex-col gap-4 sm:flex-row sm:items-end">
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
                 placeholder="@"
-                className="h-10 active:ring-0 focus:outline-0 bg-transparent! pl-2 grow border-white/90 border-2"
+                className="h-10 grow border-0 border-b border-stone-100/40 bg-transparent! text-lg text-stone-100 focus:border-accent focus:outline-0 active:ring-0"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 type="submit"
                 disabled={pending || !valid}
-                className="flex flex-row bg-white/90 hover:underline items-center px-2 text-black cursor-pointer disabled:hover:no-underline disabled:text-gray-400"
+                className="flex h-10 shrink-0 cursor-pointer flex-row items-center border border-stone-100/40 px-4 text-[11px] uppercase tracking-[0.25em] text-stone-100 transition-all hover:border-accent hover:bg-accent hover:text-black disabled:cursor-default disabled:text-stone-300/40 disabled:hover:border-stone-100/40 disabled:hover:bg-transparent"
               >
                 <div className="grow">
                   {pending
@@ -79,18 +88,11 @@ export default function AddForm() {
                       ? "Zapsat"
                       : "Odeslat"}
                 </div>
-                <Image
-                  src="/unicorn-l.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="hover:transform-3d group-hover:animate-[swing_1s_infinite] group-focus-within:animate-[swing_1s_infinite] flex-none"
-                />
               </button>
             </div>
           </>
         )}
-        <div className="text-2xl">{state?.message}</div>
+        <div className="mt-4 text-stone-100">{state?.message}</div>
       </div>
     </form>
   );

@@ -10,13 +10,11 @@ export default function Validator({ token }: Params) {
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   useEffect(() => {
-    setMessage("");
-    setEmail("");
     confirmSubscription(token).then(([message, email]) => {
       setMessage(message);
       setEmail(email);
     });
-  }, []);
+  }, [token]);
 
   return (
     <>

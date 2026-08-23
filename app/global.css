@@ -6,6 +6,9 @@
 
 @theme {
   --breakpoint-xs: 30rem;
+  --font-display: var(--font-playfair);
+  --color-accent: #d98c4f;
+  --color-accent-soft: #f0c9a0;
 }
 
 ::selection {
@@ -38,7 +41,7 @@
 }
 
 .songLyrics {
-  @apply text-sm md:text-base lg:text-2xl text-white  lg:leading-9 max-w-3xl;
+  @apply max-w-3xl text-sm font-normal leading-7 text-white sm:text-base lg:text-lg lg:leading-8;
   @apply print:text-base print:columns-2;
 
   a {
@@ -94,48 +97,6 @@
 html,
 body {
   @apply h-full w-full overflow-hidden;
-}
-
-@keyframes swing {
-  0%,
-  100% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(-15deg);
-  }
-}
-
-@keyframes text {
-  0%,
-  100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
-}
-
-.animation-magic-text {
-  background-color: #a855f7;
-  color: white;
-  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white via-purple-500 to-teal-500 bg-clip-text text-transparent
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animation-magic-text {
-    @apply animate-none bg-gradient-to-r from-white to-white bg-clip-text text-white
-  }
-}
-
-.animation-magic-backdrop {
-  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white/35 via-purple-500/35 to-teal-500/35
-}
-
-.animation-magic-backdrop:hover {
-  @apply animate-[text_5s_ease_infinite] bg-gradient-to-r from-white/65 via-purple-500/65 to-teal-500/65
 }
 
 .bg-video {
