@@ -45,7 +45,7 @@ export default function Background({
         Math.max(wrapper.scrollTop / window.innerHeight, 0),
         1
       );
-      setVideoOpacity(0.5 * (1 - progress));
+      setVideoOpacity(0.1 + 0.4 * (1 - progress));
     };
 
     handleScroll();
