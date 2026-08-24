@@ -1,7 +1,7 @@
 import { slugify } from "app/hudba/utils-edge";
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const route = req.nextUrl.pathname;
 
   // ze starého webu

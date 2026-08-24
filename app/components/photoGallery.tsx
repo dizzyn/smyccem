@@ -62,7 +62,10 @@ export default function PhotoGallery() {
       {openPhoto &&
         typeof document !== "undefined" &&
         createPortal(
-          <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-black/90 p-4 backdrop-blur-2xl print:hidden">
+          <div
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-black/90 p-4 backdrop-blur-2xl print:hidden"
+            onClick={close}
+          >
             <button
               className="group absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center border border-stone-100/40 transition-all hover:border-accent hover:bg-accent"
               onClick={close}
@@ -73,20 +76,29 @@ export default function PhotoGallery() {
 
             <button
               className="absolute left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center border border-stone-100/40 text-stone-100 transition-all hover:border-accent hover:bg-accent hover:text-black lg:flex"
-              onClick={showPrev}
+              onClick={(e) => {
+                e.stopPropagation();
+                showPrev();
+              }}
               aria-label="Předchozí fotka"
             >
               <PiCaretLeft className="text-lg" />
             </button>
             <button
               className="absolute right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center border border-stone-100/40 text-stone-100 transition-all hover:border-accent hover:bg-accent hover:text-black lg:flex"
-              onClick={showNext}
+              onClick={(e) => {
+                e.stopPropagation();
+                showNext();
+              }}
               aria-label="Další fotka"
             >
               <PiCaretRight className="text-lg" />
             </button>
 
-            <div className="relative h-full max-h-[70vh] w-full max-w-5xl lg:max-h-[85vh]">
+            <div
+              className="relative h-full max-h-[70vh] w-full max-w-5xl lg:max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Image
                 src={openPhoto.src}
                 alt="Trhni si smyčcem"
@@ -96,7 +108,10 @@ export default function PhotoGallery() {
               />
             </div>
 
-            <div className="flex items-center gap-3 lg:hidden">
+            <div
+              className="flex items-center gap-3 lg:hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
               <button
                 className="flex h-10 w-10 cursor-pointer items-center justify-center border border-stone-100/40 text-stone-100 transition-all hover:border-accent hover:bg-accent hover:text-black"
                 onClick={showPrev}

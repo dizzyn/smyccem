@@ -62,7 +62,10 @@ export default function VideoSwitch({
       {showVideo &&
         typeof document !== "undefined" &&
         createPortal(
-          <div className="fixed inset-0 bg-black/20 backdrop-blur-2xl z-50 flex items-center justify-center p-4">
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-2xl z-50 flex items-center justify-center p-4"
+            onClick={() => setShowVideo(false)}
+          >
             <button
               className="group absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center border border-stone-100/40 transition-all hover:border-accent hover:bg-accent"
               onClick={() => setShowVideo(false)}
@@ -70,7 +73,10 @@ export default function VideoSwitch({
             >
               <PiX className="h-6 w-6 text-white group-hover:text-black" />
             </button>
-            <div className="max-w-5xl w-full rounded-lg relative aspect-video overflow-hidden">
+            <div
+              className="max-w-5xl w-full rounded-lg relative aspect-video overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
               <iframe
                 src={
                   "https://www.youtube.com/embed/" +
